@@ -1,7 +1,7 @@
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, Zap, CheckCircle, Award, Target, Shield } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { ArrowRight, CheckCircle2, Zap, CheckCircle, Award, Shield } from 'lucide-react';
+import { useState } from 'react';
 import Hero from '../components/Hero';
 import Button from '../components/Button';
 import Container from '../components/Container';
@@ -18,9 +18,7 @@ import {
 } from '../data/websiteData';
 
 function scrollToTop() {
-  const lenis = window.__lenis;
-  if (lenis) lenis.scrollTo(0, { immediate: true });
-  else window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 }
 
 function PreviewCard({ item, index = 0 }) {
@@ -31,7 +29,6 @@ function PreviewCard({ item, index = 0 }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      whileHover={{ y: -8 }}
     >
       <Card variant="glassDark" className="h-full">
         <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-6`}>
@@ -99,7 +96,6 @@ function AboutPreview() {
                   whileInView={{ opacity: 1, x: 0, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.12, duration: 0.6, ease: "easeOut" }}
-                  whileHover={{ x: -8, scale: 1.02 }}
                   className="group flex gap-6 p-7 rounded-3xl glass-dark border border-sky-500/20 hover:border-sky-500/40 hover:shadow-2xl hover:shadow-sky-500/10 transition-all duration-400"
                 >
                   <span className="text-5xl font-black text-white/8 group-hover:text-sky-500/40 transition-colors duration-300 leading-none flex-shrink-0">
@@ -124,52 +120,6 @@ function AboutPreview() {
     </section>
   );
 }
-
-const TiltCard = ({ feature, children }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x, { stiffness: 500, damping: 30 });
-  const mouseYSpring = useSpring(y, { stiffness: 500, damping: 30 });
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [15, -15]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-15, 15]);
-
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const mouseX = (e.clientX - centerX) / (rect.width / 2);
-    const mouseY = (e.clientY - centerY) / (rect.height / 2);
-    x.set(mouseX);
-    y.set(mouseY);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  const sizeClasses = feature.size === 'large' ? 'lg:col-span-2 lg:row-span-2' : '';
-
-  return (
-    <motion.div
-      className={`${sizeClasses}`}
-      style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      whileHover={{ scale: 1.02 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-    >
-      <div className="relative">
-        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.color} opacity-20 blur-xl`} />
-        <Card variant="glassDark" className="relative h-full">
-          {children}
-        </Card>
-      </div>
-    </motion.div>
-  );
-};
 
 function WhyChooseUs() {
   const features = whyChooseUsFeatures;
@@ -212,44 +162,21 @@ function WhyChooseUs() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6, ease: 'easeOut' }}
               >
-                <TiltCard feature={feature}>
-                  <div className="flex flex-col h-full">
-                    <motion.div
-                      className={`w-16 h-16 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-6`}
-                      animate={{
-                        rotate: [0, 5, -5, 0],
-                        scale: [1, 1.05, 1],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: 'easeInOut',
-                      }}
-                    >
-                      <Icon className="w-8 h-8 text-white" />
-                    </motion.div>
+                <div className="relative">
+                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.color} opacity-20 blur-xl`} />
+                  <Card variant="glassDark" className="relative h-full">
+                    <div className="flex flex-col h-full">
+                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-6`}>
+                        <Icon className="w-8 h-8 text-white" />
+                      </div>
 
-                    <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-                      {feature.title}
-                    </h3>
-                    <p className="text-white/60 flex-grow">{feature.desc}</p>
-
-                    {feature.size === 'large' && (
-                      <motion.div
-                        className="mt-6 flex items-center gap-2 text-sky-400"
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: 'easeInOut',
-                        }}
-                      >
-                        <span className="font-semibold">Learn more</span>
-                        <Zap className="w-4 h-4" />
-                      </motion.div>
-                    )}
-                  </div>
-                </TiltCard>
+                      <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+                        {feature.title}
+                      </h3>
+                      <p className="text-white/60 flex-grow">{feature.desc}</p>
+                    </div>
+                  </Card>
+                </div>
               </motion.div>
             );
           })}
@@ -332,28 +259,7 @@ function ServicesPreview() {
 }
 
 function MersenPartnership() {
-  const containerRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x, { stiffness: 500, damping: 30 });
-  const mouseYSpring = useSpring(y, { stiffness: 500, damping: 30 });
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [10, -10]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-10, 10]);
-
-  const handleMouseMove = (e) => {
-    const rect = containerRef.current?.getBoundingClientRect();
-    if (rect) {
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const mouseX = (e.clientX - centerX) / (rect.width / 2);
-      const mouseY = (e.clientY - centerY) / (rect.height / 2);
-      x.set(mouseX);
-      y.set(mouseY);
-    }
-  };
 
   const achievements = mersenAchievements;
   const benefits = mersenBenefits;
@@ -361,89 +267,32 @@ function MersenPartnership() {
   return (
     <section className="py-12 sm:py-16 bg-slate-950 relative overflow-hidden">
       <div className="absolute inset-0">
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-sky-500/30 rounded-full blur-3xl"
-          animate={{
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-500/30 rounded-full blur-3xl"
-          animate={{
-            x: [0, -50, 0],
-            y: [0, 30, 0],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        />
-
-        {[...Array(10)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 rounded-full bg-sky-400/60"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -50, 0],
-              opacity: [0.3, 0.8, 0.3],
-            }}
-            transition={{
-              duration: 3 + i * 0.5,
-              repeat: Infinity,
-              delay: i * 0.2,
-              ease: 'easeInOut',
-            }}
-          />
-        ))}
+        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-sky-500/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-500/30 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div
-            ref={containerRef}
-            onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => {
-              setIsHovered(false);
-              x.set(0);
-              y.set(0);
-            }}
+            onMouseLeave={() => setIsHovered(false)}
             className="flex justify-center"
           >
-            <motion.div
-              style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-              className="relative"
-            >
-              <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-br from-sky-500 to-cyan-500 opacity-30 blur-xl"
-                animate={{ scale: isHovered ? 1.1 : 1 }}
-                transition={{ duration: 0.4 }}
-              />
+            <div className="relative">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-sky-500 to-cyan-500 opacity-30 blur-xl" />
 
               <div className="relative w-80 h-80 md:w-96 md:h-96">
                 <div className="absolute inset-0 rounded-full glass-dark border-2 border-sky-500/30 shadow-2xl flex flex-col items-center justify-center">
                   <div className="absolute inset-4 rounded-full bg-gradient-to-br from-sky-500/30 to-cyan-500/30" />
 
                   <div className="relative z-10 text-center">
-                    <motion.div
-                      className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-sky-500 to-cyan-500 flex items-center justify-center"
-                      animate={{ scale: isHovered ? [1, 1.1, 1] : 1 }}
-                      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                    >
+                    <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-sky-500 to-cyan-500 flex items-center justify-center">
                       <Award className="w-10 h-10 md:w-12 md:h-12 text-white" />
-                    </motion.div>
+                    </div>
 
-                    <motion.p
-                      className="text-6xl md:text-8xl font-bold text-white"
-                      style={{ textShadow: '0 0 30px rgba(56, 189, 248, 0.5)' }}
-                    >
+                    <p className="text-6xl md:text-8xl font-bold text-white" style={{ textShadow: '0 0 30px rgba(56, 189, 248, 0.5)' }}>
                       10
-                    </motion.p>
+                    </p>
                     <p className="text-xl md:text-2xl text-white/80 mt-2 font-semibold">Years of Partnership</p>
 
                     <div className="mt-6 flex items-center justify-center gap-3">
@@ -453,19 +302,8 @@ function MersenPartnership() {
                     </div>
                   </div>
                 </div>
-
-                <motion.div
-                  className="absolute inset-0 rounded-full"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                >
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1 w-4 h-4 rounded-full bg-sky-400 shadow-lg shadow-sky-400/50" />
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1 w-4 h-4 rounded-full bg-cyan-400 shadow-lg shadow-cyan-400/50" />
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 w-4 h-4 rounded-full bg-emerald-400 shadow-lg shadow-emerald-400/50" />
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 w-4 h-4 rounded-full bg-sky-300 shadow-lg shadow-sky-300/50" />
-                </motion.div>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           <div className="space-y-8">
@@ -499,7 +337,6 @@ function MersenPartnership() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
                   >
                     <div className="glass-dark rounded-2xl p-5 border border-sky-500/20">
                       <div className="flex items-start gap-4">
@@ -568,11 +405,10 @@ function HomeIndustries() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                whileHover={{ y: -8, scale: 1.05 }}
                 className="group"
               >
                 <div className="glass-dark border border-sky-500/20 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-sky-500/40 hover:shadow-glow">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 flex items-center justify-center mb-4">
                     <Icon className="w-7 h-7 text-sky-400" />
                   </div>
                   <h3 className="text-sm md:text-base font-semibold text-white">
