@@ -14,7 +14,7 @@ import {
 import { FaXTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa6';
 import Button from './Button';
 import Container from './Container';
-import { company, footerQuickLinks, footerProducts, footerLegalLinks } from '../data/data';
+import { company, footerQuickLinks, footerProducts, footerLegalLinks } from '../data/websiteData';
 
 const socialLinks = [
   { icon: FaXTwitter, label: 'Twitter', href: 'https://twitter.com', color: 'hover:text-sky-400 hover:border-sky-400/40 hover:bg-sky-400/10' },

@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, PhoneCall, ChevronDown } from 'lucide-react';
 import Button from './Button';
-import { TextReveal } from './Common';
+import TextReveal from './TextReveal';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -89,15 +89,15 @@ export default function Hero() {
       <div className="absolute inset-0 z-0 bg-grid pointer-events-none" />
       <div className="absolute inset-0 z-0 pointer-events-none">
         <motion.div
-          className="hero-bg-orb absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary-500/20 rounded-full blur-3xl"
+          className="hero-bg-orb absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-3xl"
           style={{ x: orb1X, y: orb1Y }}
         />
         <motion.div
-          className="hero-bg-orb absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-secondary-500/20 rounded-full blur-3xl"
+          className="hero-bg-orb absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-cyan-400/20 rounded-full blur-3xl"
           style={{ x: orb2X, y: orb2Y }}
         />
         <motion.div
-          className="hero-bg-orb absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent-500/15 rounded-full blur-3xl"
+          className="hero-bg-orb absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-400/15 rounded-full blur-3xl"
           style={{ x: orb3X, y: orb3Y }}
         />
 
@@ -105,14 +105,14 @@ export default function Hero() {
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={`h-${i}`}
-              className="grid-line absolute w-full h-px bg-gradient-to-r from-transparent via-primary-400/30 to-transparent opacity-20"
+              className="grid-line absolute w-full h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent opacity-20"
               style={{ top: `${(i + 1) * 8}%` }}
             />
           ))}
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={`v-${i}`}
-              className="grid-line absolute h-full w-px bg-gradient-to-b from-transparent via-secondary-400/30 to-transparent opacity-20"
+              className="grid-line absolute h-full w-px bg-gradient-to-b from-transparent via-cyan-400/30 to-transparent opacity-20"
               style={{ left: `${(i + 1) * 8}%` }}
             />
           ))}
@@ -122,8 +122,8 @@ export default function Hero() {
           <motion.div
             key={particle.id}
             className={`absolute rounded-full ${
-              particle.color === 'primary' ? 'bg-primary-400' :
-              particle.color === 'secondary' ? 'bg-secondary-400' : 'bg-accent-400'
+              particle.color === 'primary' ? 'bg-blue-400' :
+              particle.color === 'secondary' ? 'bg-cyan-400' : 'bg-amber-400'
             }`}
             style={{
               left: `${particle.x}%`,
@@ -152,7 +152,7 @@ export default function Hero() {
             style={{
               width: 700 + i * 250,
               height: 700 + i * 250,
-              borderColor: i % 2 === 0 ? 'rgba(14, 165, 233, 0.25)' : 'rgba(139, 92, 246, 0.25)',
+              borderColor: i % 2 === 0 ? 'rgba(59, 130, 246, 0.25)' : 'rgba(6, 182, 212, 0.25)',
             }}
             animate={{
               scale: [1, 1.8, 1],
@@ -172,8 +172,8 @@ export default function Hero() {
         <motion.div
           className="hero-label inline-flex items-center gap-3 px-6 py-3 rounded-full glass-dark border border-white/10 mb-8"
         >
-          <span className="w-3 h-3 bg-brand-primary rounded-full animate-pulse" />
-          <span className="text-sm font-semibold text-brand-primary letter-spacing-wider">Authorised Mersen Partner</span>
+          <span className="w-3 h-3 bg-blue-500 rounded-full animate-pulse shadow-lg shadow-blue-500/50" />
+          <span className="text-sm font-semibold text-blue-400 letter-spacing-wider">Authorised Mersen Partner</span>
         </motion.div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-brand-white mb-6 leading-tight">
@@ -197,7 +197,7 @@ export default function Hero() {
         </p>
 
         <div className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button variant="accent" size="xl" icon={ArrowRight}>
+          <Button variant="accent" size="xl" icon={ArrowRight} className="shadow-lg shadow-amber-500/30">
             Explore Products
           </Button>
           <Button variant="glass" size="xl" icon={PhoneCall}>

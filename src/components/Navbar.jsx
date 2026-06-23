@@ -16,7 +16,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import Button from './Button';
-import { navLinks } from '../data/data';
+import { navLinks } from '../data/websiteData';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);

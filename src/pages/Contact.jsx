@@ -1,40 +1,41 @@
-import { useState } from 'react';
-import { MapPin, Phone, Mail, MessageSquare, Clock, Send, ChevronRight } from 'lucide-react';
-import PageHero from '../components/PageHero';
-import Button from '../components/Button';
+import { Link } from 'react-router-dom';
+import { MapPin, Phone, Mail, MessageSquare, Clock } from 'lucide-react';
+import ContactForm from '../components/ContactForm';
 import Container from '../components/Container';
-import Input from '../components/Input';
-import { TextReveal } from '../components/Common';
-import { company, pageHeroes } from '../data/data';
+import TextReveal from '../components/TextReveal';
+import { company, pageHeroes } from '../data/websiteData';
+
+function PageHero({ badge, title, highlight, subtitle }) {
+  return (
+    <section className="pt-32 pb-20 bg-brand-background relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid" />
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-brand-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-brand-secondary/10 rounded-full blur-3xl" />
+      </div>
+      <Container className="relative z-10 text-center">
+        <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-dark border border-white/10 mb-8">
+          <span className="w-3 h-3 bg-brand-primary rounded-full animate-pulse" />
+          <span className="text-sm font-semibold text-brand-primary letter-spacing-wider">{badge}</span>
+        </div>
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-brand-white mb-6 leading-tight">
+          {title}
+          <span className="text-gradient bg-gradient-to-r from-brand-primary to-brand-secondary block mt-2">
+            {highlight}
+          </span>
+        </h1>
+        <p className="text-xl text-brand-grey max-w-3xl mx-auto leading-relaxed">{subtitle}</p>
+      </Container>
+    </section>
+  );
+}
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-  });
-  const [quoteFormData, setQuoteFormData] = useState({
-    company: '',
-    product: '',
-    quantity: '',
-    requirements: '',
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Thank you for your message! We will get back to you soon.');
-  };
-
-  const handleQuoteSubmit = (e) => {
-    e.preventDefault();
-    alert('Thank you for your quote request! We will contact you shortly.');
-  };
+  const hero = pageHeroes.contact;
 
   return (
     <>
-      <PageHero {...pageHeroes.contact} />
+      <PageHero {...hero} />
 
       <section className="py-20 bg-brand-surface relative overflow-hidden">
         <div className="absolute inset-0">
@@ -123,107 +124,8 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="lg:col-span-2 space-y-10">
-              <div className="glass-dark border border-white/10 rounded-3xl p-8 shadow-2xl">
-                <h3 className="text-2xl font-bold text-brand-white mb-6">
-                  <TextReveal>Send us a Message</TextReveal>
-                </h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <Input
-                      label="Your Name"
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="John Doe"
-                      required
-                    />
-                    <Input
-                      label="Email Address"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="john@example.com"
-                      required
-                    />
-                  </div>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <Input
-                      label="Phone Number"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 98765 43210"
-                    />
-                    <Input
-                      label="Subject"
-                      type="text"
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      placeholder="How can we help you?"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-brand-white mb-2">Your Message</label>
-                    <textarea
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell us about your requirements..."
-                      className="w-full h-40 bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-brand-white placeholder-brand-grey/50 focus:outline-none focus:border-brand-primary transition-all resize-none"
-                      required
-                    />
-                  </div>
-                  <Button type="submit" variant="accent" size="lg" icon={Send} className="w-full md:w-auto">
-                    Send Message
-                  </Button>
-                </form>
-              </div>
-
-              <div className="glass-dark border border-white/10 rounded-3xl p-8 shadow-2xl">
-                <h3 className="text-2xl font-bold text-brand-white mb-6">
-                  <TextReveal>Request a Quote</TextReveal>
-                </h3>
-                <form onSubmit={handleQuoteSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <Input
-                      label="Company Name"
-                      type="text"
-                      value={quoteFormData.company}
-                      onChange={(e) => setQuoteFormData({ ...quoteFormData, company: e.target.value })}
-                      placeholder="Your Company"
-                      required
-                    />
-                    <Input
-                      label="Product / Service"
-                      type="text"
-                      value={quoteFormData.product}
-                      onChange={(e) => setQuoteFormData({ ...quoteFormData, product: e.target.value })}
-                      placeholder="e.g. Surge Protection Device"
-                      required
-                    />
-                  </div>
-                  <Input
-                    label="Quantity"
-                    type="text"
-                    value={quoteFormData.quantity}
-                    onChange={(e) => setQuoteFormData({ ...quoteFormData, quantity: e.target.value })}
-                    placeholder="Required quantity"
-                  />
-                  <div>
-                    <label className="block text-sm font-medium text-brand-white mb-2">Specific Requirements</label>
-                    <textarea
-                      value={quoteFormData.requirements}
-                      onChange={(e) => setQuoteFormData({ ...quoteFormData, requirements: e.target.value })}
-                      placeholder="Describe your specific requirements..."
-                      className="w-full h-40 bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-brand-white placeholder-brand-grey/50 focus:outline-none focus:border-brand-primary transition-all resize-none"
-                    />
-                  </div>
-                  <Button type="submit" variant="primary" size="lg" icon={ChevronRight} className="w-full md:w-auto">
-                    Request Quote
-                  </Button>
-                </form>
-              </div>
+            <div className="lg:col-span-2">
+              <ContactForm />
             </div>
           </div>
         </Container>
