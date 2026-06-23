@@ -13,6 +13,15 @@ import {
   Award,
   Target,
   Headphones,
+  Factory,
+  Building,
+  Server,
+  HeartPulse,
+  Sun,
+  Car,
+  HardHat,
+  Briefcase,
+  Landmark,
 } from 'lucide-react';
 
 export const company = {
@@ -20,17 +29,17 @@ export const company = {
   shortName: 'Pavana Powers',
   email: 'pavanapowerstechnologies@gmail.com',
   emailHref: 'mailto:pavanapowerstechnologies@gmail.com',
-  phone: '+91 98765 43210',
-  phoneHref: 'tel:+919876543210',
-  phoneSecondary: '+91 80 1234 5678',
-  whatsapp: '919876543210',
-  whatsappHref: 'https://wa.me/919876543210',
-  address: '#543, 14th Main, HMT Layout Mathikere, Bangalore, Karnataka 560054',
-  addressShort: '#543, 14th Main, HMT Layout Mathikere, Bangalore, KA',
-  businessHours: 'Mon - Fri: 8:00 AM - 6:00 PM',
+  phone: '+91 7204269817',
+  phoneHref: 'tel:+917204269817',
+  phoneSecondary: '+91 9902880484',
+  whatsapp: 'https://wa.me/917204269817',
+  whatsappHref: 'https://wa.me/917204269817',
+  address: '#543, 14th Main, HMT Layout Mathikere, Bangalore - 560054',
+  addressShort: '#543, 14th Main, HMT Layout Mathikere, Bangalore',
+  businessHours: 'Mon - Sat: 9:00 AM - 7:00 PM',
   businessHoursDetailed: {
-    weekdays: 'Monday - Friday: 9:00 AM - 6:00 PM',
-    saturday: 'Saturday: 9:00 AM - 2:00 PM',
+    weekdays: 'Monday - Saturday: 9:00 AM - 7:00 PM',
+    saturday: 'Saturday: 9:00 AM - 7:00 PM',
   },
 };
 
@@ -319,6 +328,19 @@ export const mersenBenefits = [
 
 export const getFeaturedProducts = () =>
   featuredProductIds.map((id) => products.find((p) => p.id === id)).filter(Boolean);
+
+export const industries = [
+  { name: 'Industrial', icon: Factory },
+  { name: 'Commercial Buildings', icon: Building },
+  { name: 'IT & Data Centers', icon: Server },
+  { name: 'Healthcare', icon: HeartPulse },
+  { name: 'Renewable Energy', icon: Sun },
+  { name: 'EV Charging Infrastructure', icon: Car },
+  { name: 'Manufacturing', icon: Cog },
+  { name: 'Infrastructure & Construction', icon: HardHat },
+  { name: 'OEM & Panel Builders', icon: Briefcase },
+  { name: 'Government & Public Projects', icon: Landmark },
+];
 
 export const getFeaturedServices = () =>
   featuredServiceIds.map((id) => services.find((s) => s.id === id)).filter(Boolean);

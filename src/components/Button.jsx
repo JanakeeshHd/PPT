@@ -14,8 +14,8 @@ export default function Button({
   const buttonRef = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  const x = useSpring(0, { stiffness: 600, damping: 25 });
-  const y = useSpring(0, { stiffness: 600, damping: 25 });
+  const x = useSpring(0, { stiffness: 700, damping: 22 });
+  const y = useSpring(0, { stiffness: 700, damping: 22 });
 
   const handleMouseMove = (e) => {
     const rect = buttonRef.current?.getBoundingClientRect();
@@ -24,8 +24,8 @@ export default function Button({
       const centerY = rect.height / 2;
       const mouseX = e.clientX - rect.left;
       const mouseY = e.clientY - rect.top;
-      const distanceX = (mouseX - centerX) / 10;
-      const distanceY = (mouseY - centerY) / 10;
+      const distanceX = (mouseX - centerX) / 8;
+      const distanceY = (mouseY - centerY) / 8;
       x.set(distanceX);
       y.set(distanceY);
       setPosition({ x: distanceX, y: distanceY });
@@ -38,22 +38,22 @@ export default function Button({
     setPosition({ x: 0, y: 0 });
   };
 
-  const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 relative overflow-hidden tracking-tight focus:ring-offset-dark-950';
+  const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 relative overflow-hidden tracking-tight focus:ring-offset-slate-950';
   
   const variants = {
-    primary: 'bg-gradient-to-r from-primary-500 to-secondary-400 hover:from-primary-600 hover:to-secondary-500 text-white focus:ring-primary-500 shadow-glow',
-    secondary: 'glass text-white hover:bg-white/12 border-white/25 shadow-glow-secondary',
-    outline: 'border-2 border-primary-500 text-primary-400 hover:bg-primary-500/10 focus:ring-primary-500 shadow-glow',
-    ghost: 'text-primary-400 hover:bg-primary-500/10 focus:ring-primary-500',
-    glass: 'glass text-white hover:bg-white/12 border-white/25 shadow-2xl',
-    accent: 'bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white shadow-glow-accent'
+    primary: 'bg-gradient-to-r from-sky-500 via-cyan-500 to-emerald-500 hover:from-sky-600 hover:via-cyan-600 hover:to-emerald-600 text-white shadow-glow border-gradient',
+    secondary: 'glass text-white hover:bg-white/15 border-sky-400/30 shadow-glow-secondary border-gradient',
+    outline: 'border-2 border-sky-500 text-sky-400 hover:bg-sky-500/15 shadow-glow',
+    ghost: 'text-sky-400 hover:bg-sky-500/15',
+    glass: 'glass text-white hover:bg-white/15 border-sky-400/30 shadow-2xl border-gradient',
+    accent: 'bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-600 hover:via-orange-600 hover:to-red-600 text-white shadow-glow border-gradient'
   };
 
   const sizes = {
-    sm: 'px-5 py-2.5 text-sm rounded-2xl gap-2',
-    md: 'px-7 py-3.5 text-base rounded-3xl gap-2.5',
-    lg: 'px-9 py-4.5 text-lg rounded-4xl gap-3',
-    xl: 'px-12 py-6 text-xl rounded-4xl gap-4'
+    sm: 'px-6 py-3 text-sm rounded-3xl gap-2',
+    md: 'px-8 py-4 text-base rounded-4xl gap-3',
+    lg: 'px-10 py-5 text-lg rounded-4xl gap-3.5',
+    xl: 'px-14 py-7 text-xl rounded-4xl gap-4'
   };
 
   const disabledClasses = disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : '';
@@ -64,20 +64,22 @@ export default function Button({
       onMouseMove={!disabled ? handleMouseMove : undefined}
       onMouseLeave={!disabled ? handleMouseLeave : undefined}
       style={{ x, y }}
-      whileHover={!disabled ? { scale: 1.03 } : {}}
-      whileTap={!disabled ? { scale: 0.97 } : {}}
-      className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${disabledClasses} ${className} focus-visible:ring-4 focus-visible:ring-primary-400/50 focus-visible:ring-offset-4 focus-visible:ring-offset-dark-950`}
+      whileHover={!disabled ? { scale: 1.05, boxShadow: '0 0 60px rgba(14, 165, 233, 0.4)' } : {}}
+      whileTap={!disabled ? { scale: 0.96 } : {}}
+      className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${disabledClasses} ${className} focus-visible:ring-4 focus-visible:ring-sky-400/50 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-950`}
       disabled={disabled}
       aria-disabled={disabled}
       {...props}
     >
       <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-primary-400/15 via-secondary-400/15 to-accent-400/15"
+        className="absolute inset-0 bg-gradient-to-r from-sky-400/20 via-cyan-400/15 to-emerald-400/20"
         style={{
-          x: useTransform(x, (value) => -value * 3),
-          y: useTransform(y, (value) => -value * 3),
+          x: useTransform(x, (value) => -value * 4),
+          y: useTransform(y, (value) => -value * 4),
         }}
       />
+      
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full hover:animate-shimmer" />
       
       <div className="relative z-10 flex items-center gap-2">
         {Icon && iconPosition === 'left' && <Icon className="w-5 h-5" aria-hidden="true" />}
