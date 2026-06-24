@@ -127,8 +127,9 @@ function CompanyStory() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
+                className="h-full"
               >
-                <Card variant="glassDark">
+                <Card variant="glassDark" className="h-full">
                   <div className="flex items-center gap-3 mb-4">
                     <Target className="w-6 h-6 text-sky-400" />
                     <h4 className="text-lg font-bold text-white">Mission</h4>
@@ -144,8 +145,9 @@ function CompanyStory() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
+                className="h-full"
               >
-                <Card variant="glassDark">
+                <Card variant="glassDark" className="h-full">
                   <div className="flex items-center gap-3 mb-4">
                     <Eye className="w-6 h-6 text-cyan-400" />
                     <h4 className="text-lg font-bold text-white">Vision</h4>
