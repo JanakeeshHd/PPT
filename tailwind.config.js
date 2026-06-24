@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+const plugin = require('tailwindcss/plugin');
+
+module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -188,5 +189,14 @@ export default {
       }
     }
   },
-  plugins: [],
+  plugins: [
+    plugin(function({ addUtilities }) {
+      addUtilities({
+        '.mask-composite-exclude': {
+          'mask-composite': 'exclude',
+          '-webkit-mask-composite': 'exclude'
+        },
+      })
+    })
+  ],
 }
