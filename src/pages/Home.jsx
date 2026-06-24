@@ -29,13 +29,16 @@ function PreviewCard({ item, index = 0 }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
+      className="h-full"
     >
       <Card variant="glassDark" className="h-full">
-        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-6`}>
-          <Icon className="w-8 h-8 text-white" />
+        <div className="flex flex-col h-full">
+          <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-6 flex-shrink-0`}>
+            <Icon className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="text-xl font-bold text-white mb-4">{item.name}</h3>
+          <p className="text-gray-400 flex-grow">{item.shortDesc}</p>
         </div>
-        <h3 className="text-xl font-bold text-white mb-4">{item.name}</h3>
-        <p className="text-gray-400">{item.shortDesc}</p>
       </Card>
     </motion.div>
   );
@@ -405,9 +408,9 @@ function HomeIndustries() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="group"
+                className="group h-full"
               >
-                <div className="glass-dark border border-sky-500/20 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-sky-500/40 hover:shadow-glow">
+                <div className="glass-dark border border-sky-500/20 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-sky-500/40 hover:shadow-glow h-full">
                   <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 flex items-center justify-center mb-4">
                     <Icon className="w-7 h-7 text-sky-400" />
                   </div>

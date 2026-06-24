@@ -7,7 +7,7 @@ export default function Card({
   hover = true,
   ...props
 }) {
-  const baseClasses = 'rounded-[40px] p-8 transition-all duration-500 relative overflow-hidden';
+  const baseClasses = 'rounded-[40px] p-8 transition-all duration-500 relative overflow-hidden flex flex-col';
   
   const variants = {
     default: 'bg-slate-900/80 border border-sky-500/20 shadow-xl',
