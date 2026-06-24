@@ -46,7 +46,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'glass-dark py-3 shadow-2xl backdrop-blur-3xl border-b border-blue-500/20'
+          ? 'glass-dark !border-0 !rounded-none py-3 shadow-2xl backdrop-blur-3xl'
           : 'bg-transparent py-5'
       }`}
       role="navigation"
@@ -125,14 +125,14 @@ export default function Navbar() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed inset-y-0 right-0 w-full max-w-md glass-dark border-l border-blue-500/30 lg:hidden z-50"
+              className="fixed inset-y-0 right-0 w-full max-w-md glass-dark lg:hidden z-50"
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation"
             >
               <div className="flex flex-col h-full">
                 {/* Menu Header */}
-                <div className="flex items-center justify-between p-6 border-b border-blue-500/20">
+                <div className="flex items-center justify-between p-6">
                   <Link to="/" className="flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
                     <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 via-cyan-500 to-emerald-500 flex items-center justify-center shadow-xl">
                       <img
@@ -194,7 +194,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Menu Footer */}
-                <div className="p-6 border-t border-blue-500/20 space-y-4">
+                <div className="p-6 space-y-4">
                   <a
                     href="tel:+917204269817"
                     className="flex items-center gap-3 w-full px-6 py-4 text-white font-semibold border border-blue-500/20 rounded-2xl hover:bg-white/5 transition-all duration-300"
