@@ -164,8 +164,9 @@ function WhyChooseUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6, ease: 'easeOut' }}
+                className="h-full"
               >
-                <div className="relative">
+                <div className="h-full relative group">
                   <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.color} opacity-20 blur-xl`} />
                   <Card variant="glassDark" className="relative h-full">
                     <div className="flex flex-col h-full">
