@@ -34,6 +34,18 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const navItems = [
     { name: 'Home', href: '/', icon: Home },
     { name: 'About', href: '/about', icon: Building2 },
