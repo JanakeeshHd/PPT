@@ -55,68 +55,70 @@ export default function Navbar() {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'glass-dark !border-0 !rounded-none py-3 shadow-2xl backdrop-blur-3xl'
-          : 'bg-transparent py-5'
-      }`}
-      role="navigation"
-      aria-label="Main navigation"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-8">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-4 group" aria-label="Pavana Powers Technologies - Home">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-cyan-500 to-emerald-500 flex items-center justify-center shadow-xl shadow-blue-500/30 overflow-hidden group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-              <img
-                src="/logo.png"
-                alt="Pavana Powers Technologies Logo"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="block">
-              <span className="text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent tracking-tight">
-                Pavana Powers
-              </span>
-              <span className="block text-xs text-gray-400 tracking-widest uppercase mt-0.5">Technologies</span>
-            </div>
-          </Link>
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled
+            ? 'glass-dark !border-0 !rounded-none py-3 shadow-2xl backdrop-blur-3xl'
+            : 'bg-transparent py-5'
+        }`}
+        role="navigation"
+        aria-label="Main navigation"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-8">
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-4 group" aria-label="Pavana Powers Technologies - Home">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-cyan-500 to-emerald-500 flex items-center justify-center shadow-xl shadow-blue-500/30 overflow-hidden group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <img
+                  src="/logo.png"
+                  alt="Pavana Powers Technologies Logo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="block">
+                <span className="text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent tracking-tight">
+                  Pavana Powers
+                </span>
+                <span className="block text-xs text-gray-400 tracking-widest uppercase mt-0.5">Technologies</span>
+              </div>
+            </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1" role="menubar">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = location.pathname === item.href;
-              return (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  role="menuitem"
-                  className={`flex items-center gap-2 px-5 py-3 text-sm font-semibold transition-all duration-300 rounded-xl ${
-                    isActive
-                      ? 'text-blue-400 bg-white/10 shadow-lg'
-                      : 'text-white/80 hover:text-white hover:bg-white/5'
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  {item.name}
-                </Link>
-              );
-            })}
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-1" role="menubar">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = location.pathname === item.href;
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    role="menuitem"
+                    className={`flex items-center gap-2 px-5 py-3 text-sm font-semibold transition-all duration-300 rounded-xl ${
+                      isActive
+                        ? 'text-blue-400 bg-white/10 shadow-lg'
+                        : 'text-white/80 hover:text-white hover:bg-white/5'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {item.name}
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-3 text-white hover:bg-white/10 rounded-xl transition-all duration-300 border border-white/10"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-3 text-white hover:bg-white/10 rounded-xl transition-all duration-300 border border-white/10"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle mobile menu"
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
         </div>
-      </div>
+      </nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -128,7 +130,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm lg:hidden z-40"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm lg:hidden z-50"
               onClick={() => setMobileMenuOpen(false)}
             />
             {/* Menu Panel */}
@@ -137,7 +139,7 @@ export default function Navbar() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed inset-y-0 right-0 w-full max-w-md glass-dark lg:hidden z-50 overflow-hidden"
+              className="fixed inset-y-0 right-0 w-full max-w-md glass-dark lg:hidden z-[60] overflow-hidden"
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation"
@@ -228,6 +230,6 @@ export default function Navbar() {
           </>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 }
