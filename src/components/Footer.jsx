@@ -80,7 +80,14 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-gray-500 text-xs mb-1">Address</p>
-                  <p className="text-white text-sm leading-relaxed">{company.address}</p>
+                  <a
+                    href={company.addressHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white text-sm leading-relaxed hover:text-sky-400 transition-colors duration-300"
+                  >
+                    {company.addressShort}
+                  </a>
                 </div>
               </div>
 
@@ -90,7 +97,12 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-gray-500 text-xs mb-1">Phone</p>
-                  <p className="text-white text-sm">{company.phone}</p>
+                  <a
+                    href={company.phoneHref}
+                    className="text-white text-sm hover:text-sky-400 transition-colors duration-300"
+                  >
+                    {company.phone}
+                  </a>
                 </div>
               </div>
 

@@ -32,9 +32,11 @@ export const company = {
   phone: '+91 7204269817',
   phoneHref: 'tel:+917204269817',
   phoneSecondary: '+91 9902880484',
+  phoneSecondaryHref: 'tel:+919902880484',
   whatsapp: 'https://wa.me/917204269817',
   whatsappHref: 'https://wa.me/917204269817',
   address: '#543, 14th Main, HMT Layout Mathikere, Bangalore - 560054',
+  addressHref: 'https://maps.app.goo.gl/hMHeffUcuQaDL6SF8',
   addressShort: '#543, 14th Main, HMT Layout Mathikere, Bangalore',
   businessHours: 'Mon - Sat: 9:00 AM - 7:00 PM',
   businessHoursDetailed: {

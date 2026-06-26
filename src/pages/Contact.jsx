@@ -57,11 +57,14 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-1">Office Address</h4>
-                      <p className="text-gray-400 leading-relaxed">
-                        #543, 14th Main,<br />
-                        HMT Layout Mathikere, Bangalore,<br />
-                        Karnataka 560054, India
-                      </p>
+                      <a
+                        href={company.addressHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 leading-relaxed hover:text-sky-400 transition-colors duration-300"
+                      >
+                        {company.address}
+                      </a>
                     </div>
                   </div>
 
@@ -71,8 +74,18 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-1">Phone</h4>
-                      <p className="text-gray-400 leading-relaxed">{company.phone}</p>
-                      <p className="text-gray-400 leading-relaxed">{company.phoneSecondary}</p>
+                      <a
+                        href={company.phoneHref}
+                        className="block text-gray-400 leading-relaxed hover:text-sky-400 transition-colors duration-300"
+                      >
+                        {company.phone}
+                      </a>
+                      <a
+                        href={company.phoneSecondaryHref}
+                        className="block text-gray-400 leading-relaxed hover:text-sky-400 transition-colors duration-300"
+                      >
+                        {company.phoneSecondary}
+                      </a>
                     </div>
                   </div>
 
@@ -97,7 +110,14 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-1">WhatsApp</h4>
-                      <p className="text-gray-400 leading-relaxed">{company.phone}</p>
+                      <a
+                        href={company.whatsappHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 leading-relaxed hover:text-sky-400 transition-colors duration-300"
+                      >
+                        {company.phone}
+                      </a>
                     </div>
                   </div>
 
@@ -115,12 +135,16 @@ export default function Contact() {
               </div>
 
               <div className="glass-dark border border-sky-500/20 rounded-3xl overflow-hidden shadow-2xl h-80">
-                <div className="w-full h-full bg-gradient-to-br from-slate-900 to-slate-950 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-16 h-16 text-sky-400 mx-auto mb-4" />
-                    <p className="text-gray-400">Google Map Integration</p>
-                  </div>
-                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.211999905253!2d77.56100607420136!3d13.02204491411516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17e13541333b%3A0x6591f8632678695!2sPavana%20Powers%20Technologies!5e0!3m2!1sen!2sin!4v1719376053344!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Google Map of Pavana Powers Technologies"
+                ></iframe>
               </div>
             </div>
 
