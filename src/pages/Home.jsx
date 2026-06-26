@@ -30,10 +30,17 @@ function PreviewCard({ item, index = 0 }) {
       transition={{ delay: index * 0.1 }}
       className="h-full"
     >
-      <Card variant="glassDark" className="h-full">
-        <div className="flex flex-col h-full">
-          <h3 className="text-xl font-bold text-white mb-4">{item.name}</h3>
-          <p className="text-gray-400 flex-grow">{item.shortDesc}</p>
+      <Card variant="glassDark" className="h-full p-0 overflow-hidden group">
+        <div className="h-48 overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.name}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+        </div>
+        <div className="p-6 flex flex-col flex-grow">
+          <h3 className="text-lg font-bold text-white mb-3">{item.name}</h3>
+          <p className="text-gray-400 text-sm flex-grow">{item.shortDesc}</p>
         </div>
       </Card>
     </motion.div>
@@ -204,7 +211,7 @@ function ProductsPreview() {
           subtitle="Explore our range of premium electrical protection and solution products."
         />
 
-        <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {featuredProducts.map((product, index) => (
             <PreviewCard key={product.id} item={product} index={index} />
           ))}
@@ -240,7 +247,7 @@ function ServicesPreview() {
           subtitle="End-to-end electrical solutions for industries."
         />
 
-        <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {featuredServices.map((service, index) => (
             <PreviewCard key={service.id} item={service} index={index} />
           ))}
@@ -395,7 +402,7 @@ function HomeIndustries() {
           subtitle="We provide electrical protection solutions across a wide range of industries, ensuring safety and reliability for critical infrastructure."
         />
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-6">
           {industries.map((industry, index) => {
             const Icon = industry.icon;
             return (

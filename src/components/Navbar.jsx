@@ -63,8 +63,8 @@ export default function Navbar() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="hidden sm:block">
-              <span className="text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent tracking-tight">
+            <div className="block">
+              <span className="text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent tracking-tight">
                 Pavana Powers
               </span>
               <span className="block text-xs text-gray-400 tracking-widest uppercase mt-0.5">Technologies</span>
