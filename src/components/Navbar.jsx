@@ -137,7 +137,7 @@ export default function Navbar() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed inset-y-0 right-0 w-full max-w-md glass-dark lg:hidden z-50"
+              className="fixed inset-y-0 right-0 w-full max-w-md glass-dark lg:hidden z-50 overflow-hidden"
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation"

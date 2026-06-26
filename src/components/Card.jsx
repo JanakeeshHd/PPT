@@ -30,9 +30,7 @@ export default function Card({
     >
       <div className="absolute top-0 right-0 w-40 h-40 bg-sky-500/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-40 h-40 bg-cyan-500/5 rounded-full blur-3xl" />
-      <div className="relative z-10">
-        {children}
-      </div>
+      <div className="relative z-10 flex flex-col h-full w-full">{children}</div>
     </motion.div>
   );
 }
