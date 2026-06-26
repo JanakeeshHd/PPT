@@ -113,7 +113,6 @@ export const products = [
   {
     id: 1,
     name: 'Mersen Surge Protection Devices (SPD)',
-    icon: Shield,
     image: 'src/assets/images/mersinspd.jpg',
     color: 'from-blue-500 to-cyan-400',
     desc: 'Protect electrical systems and equipment from surges, transient voltages, and lightning strikes, ensuring safety and reliability.',
@@ -125,7 +124,6 @@ export const products = [
   {
     id: 2,
     name: 'Mersen Ground Monitoring Devices (GMD)',
-    icon: Sparkles,
     image: 'src/assets/images/mersinGMD.jpeg',
     color: 'from-cyan-400 to-blue-500',
     desc: 'Continuous ground monitoring systems that alert you to any deviation from set values, ensuring electrical safety.',
@@ -137,7 +135,6 @@ export const products = [
   {
     id: 3,
     name: 'Mersen Industrial Fuses',
-    icon: Zap,
     image: 'src/assets/images/mersinFuse.jpg',
     color: 'from-amber-400 to-blue-500',
     desc: 'High-rupturing capacity fuses that protect against overloads and short circuits, ensuring safe operations.',
@@ -149,7 +146,6 @@ export const products = [
   {
     id: 4,
     name: 'Tube Based Fire Suppression System',
-    icon: Flame,
     image: 'src/assets/images/firesupression.png',
     color: 'from-blue-500 to-amber-400',
     desc: 'Automatic fire suppression systems using advanced tube technology for quick and efficient fire control.',
@@ -161,7 +157,6 @@ export const products = [
   {
     id: 5,
     name: 'Elevators',
-    icon: Building2,
     image: 'src/assets/images/elevetors.jpg',
     color: 'from-cyan-400 to-amber-400',
     desc: 'Modern elevator solutions for commercial and industrial buildings with safety and efficiency as top priorities.',
@@ -173,7 +168,6 @@ export const products = [
   {
     id: 6,
     name: 'Industrial Electrical Components',
-    icon: Cog,
     image: 'src/assets/images/industrialcomponent.jpg',
     color: 'from-amber-400 to-cyan-400',
     desc: 'Comprehensive range of industrial electrical components for power distribution and control systems.',
@@ -190,8 +184,7 @@ export const services = [
   {
     id: 1,
     name: 'Supply of Electrical Products',
-    icon: Package,
-    image: 'src/assets/images/mersinElectricalSupply.jpg',
+    image: 'src/assets/images/Supply of Electrical Products.png',
     color: 'from-blue-500 to-cyan-400',
     desc: 'Comprehensive supply of industrial electrical products from leading manufacturers.',
     shortDesc: 'Comprehensive supply from leading manufacturers.',
@@ -202,8 +195,7 @@ export const services = [
   {
     id: 2,
     name: 'Installation Services',
-    icon: Wrench,
-    image: 'src/assets/images/mersinInstallation.jpg',
+    image: 'src/assets/images/Installation Services.png',
     color: 'from-cyan-400 to-blue-500',
     desc: 'Professional installation of electrical systems and equipment by certified technicians.',
     shortDesc: 'Professional installation by certified technicians.',
@@ -214,8 +206,7 @@ export const services = [
   {
     id: 3,
     name: 'Earthing Works',
-    icon: Zap,
-    image: 'src/assets/images/mersinEarthing.jpg',
+    image: 'src/assets/images/Earthing Works.png',
     color: 'from-amber-400 to-blue-500',
     desc: 'Design and installation of earthing systems to ensure electrical safety and compliance.',
     shortDesc: 'Design and installation for electrical safety.',
@@ -226,8 +217,7 @@ export const services = [
   {
     id: 4,
     name: 'Testing & Commissioning',
-    icon: CheckCircle,
-    image: 'src/assets/images/mersinTesting.jpg',
+    image: 'src/assets/images/Testing & Commissioning.png',
     color: 'from-blue-500 to-amber-400',
     desc: 'Comprehensive testing and commissioning of electrical systems to ensure optimal performance.',
     shortDesc: 'Comprehensive testing for optimal performance.',
@@ -238,8 +228,7 @@ export const services = [
   {
     id: 5,
     name: 'Industrial Electrical Consultation',
-    icon: Users,
-    image: 'src/assets/images/mersinConsultation.jpg',
+    image: 'src/assets/images/Industrial Electrical Consultation.png',
     color: 'from-cyan-400 to-amber-400',
     desc: 'Expert consultation for industrial electrical system design, optimization, and modernization.',
     shortDesc: 'Expert consultation for industrial electrical systems.',
@@ -250,8 +239,7 @@ export const services = [
   {
     id: 6,
     name: 'Maintenance & Technical Support',
-    icon: ShieldCheck,
-    image: 'src/assets/images/mersinMaintenance.jpg',
+    image: 'src/assets/images/Maintenance & Technical Support.png',
     color: 'from-amber-400 to-cyan-400',
     desc: 'Regular maintenance and 24/7 technical support to keep your systems running smoothly.',
     shortDesc: 'Maintenance and technical support for your systems.',

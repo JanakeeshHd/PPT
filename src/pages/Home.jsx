@@ -22,7 +22,6 @@ function scrollToTop() {
 }
 
 function PreviewCard({ item, index = 0 }) {
-  const Icon = item.icon;
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -33,9 +32,6 @@ function PreviewCard({ item, index = 0 }) {
     >
       <Card variant="glassDark" className="h-full">
         <div className="flex flex-col h-full">
-          <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-6 flex-shrink-0`}>
-            <Icon className="w-8 h-8 text-white" />
-          </div>
           <h3 className="text-xl font-bold text-white mb-4">{item.name}</h3>
           <p className="text-gray-400 flex-grow">{item.shortDesc}</p>
         </div>

@@ -59,7 +59,6 @@ export default function Services() {
           <div className="space-y-24">
             {services.map((service, index) => {
               const isEven = index % 2 === 0;
-              const Icon = service.icon;
               return (
                 <motion.div
                   key={service.id}
@@ -78,18 +77,13 @@ export default function Services() {
                         <img
                           src={service.image}
                           alt={service.name}
-                          className="w-full h-[450px] object-cover group-hover:scale-110 transition-transform duration-700"
+                          className="w-full h-[450px] object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-br from-slate-950/40 via-transparent to-slate-950/60"></div>
-                        <div className="absolute bottom-0 left-0 right-0 p-10">
-                          <div className={`w-24 h-24 rounded-3xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 shadow-2xl group-hover:rotate-12 transition-transform duration-400`}>
-                            <Icon className="w-12 h-12 text-white" />
-                          </div>
-                          <h3 className="text-4xl font-extrabold text-white">{service.name}</h3>
-                        </div>
                       </div>
                     </motion.div>
                     <div className="space-y-8">
+                          <h3 className="text-4xl font-extrabold text-white">{service.name}</h3>
                       <p className="text-2xl text-gray-300 leading-relaxed">{service.desc}</p>
                       <div>
                         <h4 className="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-3 uppercase tracking-wider">

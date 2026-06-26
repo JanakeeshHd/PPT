@@ -58,7 +58,6 @@ export default function Products() {
         <Container>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product, index) => {
-              const Icon = product.icon;
               return (
                 <motion.div
                   key={product.id}
@@ -77,9 +76,6 @@ export default function Products() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
                       <div className="absolute bottom-6 left-6 right-6">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${product.color} flex items-center justify-center mb-3 shadow-2xl group-hover:rotate-6 transition-transform duration-300`}>
-                          <Icon className="w-8 h-8 text-white" />
-                        </div>
                         <h3 className="text-2xl font-bold text-white">{product.name}</h3>
                       </div>
                     </div>
