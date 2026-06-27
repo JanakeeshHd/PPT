@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import Button from './Button';
 import { navLinks } from '../data/websiteData';
+import logo from '../assets/logo/logo.png';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -69,20 +70,20 @@ export default function Navbar() {
           <div className="flex items-center justify-between gap-8">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-4 group" aria-label="Pavana Powers Technologies - Home">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-cyan-500 to-emerald-500 flex items-center justify-center shadow-xl shadow-blue-500/30 overflow-hidden group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                <img
-                  src="/logo.png"
-                  alt="Pavana Powers Technologies Logo"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="block">
-                <span className="text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent tracking-tight">
-                  Pavana Powers
-                </span>
-                <span className="block text-xs text-gray-400 tracking-widest uppercase mt-0.5">Technologies</span>
-              </div>
-            </Link>
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-cyan-500 to-emerald-500 flex items-center justify-center shadow-xl shadow-blue-500/30 overflow-hidden group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+              <img
+                src={logo}
+                alt="Pavana Powers Technologies Logo"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="hidden sm:block">
+              <span className="text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent tracking-tight">
+                Pavana Powers
+              </span>
+              <span className="block text-xs text-gray-400 tracking-widest uppercase mt-0.5">Technologies</span>
+            </div>
+          </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1" role="menubar">
@@ -146,22 +147,22 @@ export default function Navbar() {
             >
               <div className="flex flex-col h-full">
                 {/* Menu Header */}
-                <div className="flex items-center justify-between p-6">
-                  <Link to="/" className="flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 via-cyan-500 to-emerald-500 flex items-center justify-center shadow-xl">
-                      <img
-                        src="/logo.png"
-                        alt="Pavana Powers Technologies Logo"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <span className="text-xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent tracking-tight">
-                        Pavana Powers
-                      </span>
-                      <span className="block text-xs text-gray-400 tracking-widest uppercase">Technologies</span>
-                    </div>
-                  </Link>
+                <div className="flex items-center justify-between p-6 border-b border-blue-500/20">
+              <Link to="/" className="flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 via-cyan-500 to-emerald-500 flex items-center justify-center shadow-xl">
+                  <img
+                    src={logo}
+                    alt="Pavana Powers Technologies Logo"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <span className="text-xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent tracking-tight">
+                    Pavana Powers
+                  </span>
+                  <span className="block text-xs text-gray-400 tracking-widest uppercase">Technologies</span>
+                </div>
+              </Link>
                   <button
                     onClick={() => setMobileMenuOpen(false)}
                     className="p-3 text-white hover:bg-white/10 rounded-xl transition-all duration-300 border border-white/10"

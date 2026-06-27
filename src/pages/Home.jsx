@@ -9,12 +9,12 @@ import Card from '../components/Card';
 import SectionTitle from '../components/SectionTitle';
 import {
   aboutHighlights,
-  whyChooseUsFeatures,
   getFeaturedProducts,
   getFeaturedServices,
   mersenAchievements,
   mersenBenefits,
   industries,
+  whyChooseUsFeatures,
 } from '../data/websiteData';
 
 function scrollToTop() {
@@ -123,72 +123,6 @@ function AboutPreview() {
           </div>
         </div>
       </Container>
-    </section>
-  );
-}
-
-function WhyChooseUs() {
-  const features = whyChooseUsFeatures;
-  return (
-    <section className="py-12 sm:py-16 bg-slate-900/50 relative overflow-hidden">
-      <div className="absolute top-1/4 left-0 w-1/2 h-1/2 bg-sky-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-0 w-1/2 h-1/2 bg-cyan-500/5 rounded-full blur-3xl" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-sky-500/20 mb-6">
-            <span className="w-2 h-2 bg-sky-500 rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-sky-400">Why Choose Us</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Why Choose
-            <span className="text-gradient bg-gradient-to-r from-sky-500 to-cyan-500">
-              {' '}Pavana Powers
-            </span>
-          </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            We work closely with our customers from selection stage to execution, providing practical and technically reliable solutions.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-
-            return (
-              <motion.div
-                key={feature.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.6, ease: 'easeOut' }}
-                className="h-full"
-              >
-                <div className="h-full relative group">
-                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.color} opacity-20 blur-xl`} />
-                  <Card variant="glassDark" className="relative h-full">
-                    <div className="flex flex-col h-full">
-                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-6`}>
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-
-                      <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-                        {feature.title}
-                      </h3>
-                      <p className="text-white/60 flex-grow">{feature.desc}</p>
-                    </div>
-                  </Card>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
     </section>
   );
 }
@@ -431,16 +365,82 @@ function HomeIndustries() {
   );
 }
 
+function WhyChooseUs() {
+  const features = whyChooseUsFeatures;
+  return (
+    <section className="py-12 sm:py-16 bg-slate-900/50 relative overflow-hidden">
+      <div className="absolute top-1/4 left-0 w-1/2 h-1/2 bg-sky-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-0 w-1/2 h-1/2 bg-cyan-500/5 rounded-full blur-3xl" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-sky-500/20 mb-6">
+            <span className="w-2 h-2 bg-sky-500 rounded-full animate-pulse" />
+            <span className="text-sm font-medium text-sky-400">Why Choose Us</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Why Choose
+            <span className="text-gradient bg-gradient-to-r from-sky-500 to-cyan-500">
+              {' '}Pavana Powers
+            </span>
+          </h2>
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            We work closely with our customers from selection stage to execution, providing practical and technically reliable solutions.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+
+            return (
+              <motion.div
+                key={feature.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6, ease: 'easeOut' }}
+                className="h-full"
+              >
+                <div className="h-full relative group">
+                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.color} opacity-20 blur-xl`} />
+                  <Card variant="glassDark" className="relative h-full p-8">
+                    <div className="flex flex-col h-full">
+                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-6`}>
+                        <Icon className="w-8 h-8 text-white" />
+                      </div>
+
+                      <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+                        {feature.title}
+                      </h3>
+                      <p className="text-white/60 flex-grow leading-relaxed text-sm md:text-base whitespace-normal hyphens-auto break-words">{feature.desc}</p>
+                    </div>
+                  </Card>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <>
       <Hero />
       <AboutPreview />
-      <WhyChooseUs />
       <ProductsPreview />
       <ServicesPreview />
       <HomeIndustries />
       <MersenPartnership />
+      <WhyChooseUs />
     </>
   );
 }

@@ -41,7 +41,7 @@ export const company = {
   businessHours: 'Mon - Sat: 9:00 AM - 7:00 PM',
   businessHoursDetailed: {
     weekdays: 'Monday - Saturday: 9:00 AM - 7:00 PM',
-    saturday: 'Saturday: 9:00 AM - 7:00 PM',
+    saturday: 'Saturday: 9:00 AM - 6:00 PM',
   },
 };
 
@@ -113,7 +113,7 @@ export const products = [
   {
     id: 1,
     name: 'Mersen Surge Protection Devices (SPD)',
-    image: 'src/assets/images/mersinspd.jpg',
+    image: '/products/mersinspd.jpg',
     color: 'from-blue-500 to-cyan-400',
     desc: 'Protect electrical systems and equipment from surges, transient voltages, and lightning strikes, ensuring safety and reliability.',
     shortDesc: 'Protect electrical systems from surges and lightning strikes.',
@@ -124,7 +124,7 @@ export const products = [
   {
     id: 2,
     name: 'Mersen Ground Monitoring Devices (GMD)',
-    image: 'src/assets/images/mersinGMD.jpeg',
+    image: '/products/mersinGMD.jpeg',
     color: 'from-cyan-400 to-blue-500',
     desc: 'Continuous ground monitoring systems that alert you to any deviation from set values, ensuring electrical safety.',
     shortDesc: 'Continuous monitoring for electrical safety and compliance.',
@@ -135,7 +135,7 @@ export const products = [
   {
     id: 3,
     name: 'Mersen Industrial Fuses',
-    image: 'src/assets/images/mersinFuse.jpg',
+    image: '/products/mersinFuse.jpg',
     color: 'from-amber-400 to-blue-500',
     desc: 'High-rupturing capacity fuses that protect against overloads and short circuits, ensuring safe operations.',
     shortDesc: 'High-rupturing capacity fuses for safe operations.',
@@ -146,7 +146,7 @@ export const products = [
   {
     id: 4,
     name: 'Tube Based Fire Suppression System',
-    image: 'src/assets/images/firesupression.png',
+    image: '/products/firesupression.png',
     color: 'from-blue-500 to-amber-400',
     desc: 'Automatic fire suppression systems using advanced tube technology for quick and efficient fire control.',
     shortDesc: 'Automatic fire suppression for quick and efficient control.',
@@ -157,7 +157,7 @@ export const products = [
   {
     id: 5,
     name: 'Elevators',
-    image: 'src/assets/images/elevetors.jpg',
+    image: '/products/elevetors.jpg',
     color: 'from-cyan-400 to-amber-400',
     desc: 'Modern elevator solutions for commercial and industrial buildings with safety and efficiency as top priorities.',
     shortDesc: 'Modern elevator solutions for commercial and industrial buildings.',
@@ -168,7 +168,7 @@ export const products = [
   {
     id: 6,
     name: 'Industrial Electrical Components',
-    image: 'src/assets/images/industrialcomponent.jpg',
+    image: '/products/industrialcomponent.jpg',
     color: 'from-amber-400 to-cyan-400',
     desc: 'Comprehensive range of industrial electrical components for power distribution and control systems.',
     shortDesc: 'Industrial electrical components for power distribution and control.',
@@ -184,7 +184,7 @@ export const services = [
   {
     id: 1,
     name: 'Supply of Electrical Products',
-    image: 'src/assets/images/Supply of Electrical Products.png',
+    image: '/Services/Supply of Electrical Products.png',
     color: 'from-blue-500 to-cyan-400',
     desc: 'Comprehensive supply of industrial electrical products from leading manufacturers.',
     shortDesc: 'Comprehensive supply from leading manufacturers.',
@@ -195,7 +195,7 @@ export const services = [
   {
     id: 2,
     name: 'Installation Services',
-    image: 'src/assets/images/Installation Services.png',
+    image: '/Services/Installation Services.png',
     color: 'from-cyan-400 to-blue-500',
     desc: 'Professional installation of electrical systems and equipment by certified technicians.',
     shortDesc: 'Professional installation by certified technicians.',
@@ -206,7 +206,7 @@ export const services = [
   {
     id: 3,
     name: 'Earthing Works',
-    image: 'src/assets/images/Earthing Works.png',
+    image: '/Services/Earthing Works.png',
     color: 'from-amber-400 to-blue-500',
     desc: 'Design and installation of earthing systems to ensure electrical safety and compliance.',
     shortDesc: 'Design and installation for electrical safety.',
@@ -217,7 +217,7 @@ export const services = [
   {
     id: 4,
     name: 'Testing & Commissioning',
-    image: 'src/assets/images/Testing & Commissioning.png',
+    image: '/Services/Testing & Commissioning.png',
     color: 'from-blue-500 to-amber-400',
     desc: 'Comprehensive testing and commissioning of electrical systems to ensure optimal performance.',
     shortDesc: 'Comprehensive testing for optimal performance.',
@@ -228,7 +228,7 @@ export const services = [
   {
     id: 5,
     name: 'Industrial Electrical Consultation',
-    image: 'src/assets/images/Industrial Electrical Consultation.png',
+    image: '/Services/Industrial Electrical Consultation.png',
     color: 'from-cyan-400 to-amber-400',
     desc: 'Expert consultation for industrial electrical system design, optimization, and modernization.',
     shortDesc: 'Expert consultation for industrial electrical systems.',
@@ -239,7 +239,7 @@ export const services = [
   {
     id: 6,
     name: 'Maintenance & Technical Support',
-    image: 'src/assets/images/Maintenance & Technical Support.png',
+    image: '/Services/Maintenance & Technical Support.png',
     color: 'from-amber-400 to-cyan-400',
     desc: 'Regular maintenance and 24/7 technical support to keep your systems running smoothly.',
     shortDesc: 'Maintenance and technical support for your systems.',
