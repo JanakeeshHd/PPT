@@ -289,14 +289,6 @@ export const whyChooseUsFeatures = [
   },
   {
     id: 4,
-    title: 'Customer-Focused',
-    desc: 'Close coordination from selection stage to project execution.',
-    icon: Users,
-    color: 'from-blue-500 to-cyan-400',
-    size: 'small',
-  },
-  {
-    id: 5,
     title: 'Reliable Support',
     desc: 'Dedicated support to ensure your systems remain safe and operational.',
     icon: Headphones,
@@ -304,7 +296,7 @@ export const whyChooseUsFeatures = [
     size: 'small',
   },
   {
-    id: 6,
+    id: 5,
     title: 'Specialised Expertise',
     desc: 'Focused expertise in SPD, GMD, and Fuse Protection Solutions.',
     icon: Shield,

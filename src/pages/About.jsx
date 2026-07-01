@@ -115,7 +115,7 @@ function CompanyStory() {
                   </div>
                   <h3 className="text-2xl font-bold text-white">Company Overview</h3>
                 </div>
-                <p className="text-gray-400 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed justify-center text-sm font-medium">
                   Pavana Powers Technologies is a specialised electrical solutions company focused on projects requiring Surge Protection Devices (SPD), Grounding & Monitoring Devices (GMD), and Industrial Fuse Protection Solutions. With strong application knowledge and a customer-focused approach, we work closely with consultants, contractors, panel builders, OEMs, system integrators, and end users to provide the right technical solutions for safe and reliable electrical systems.
                 </p>
               </Card>
@@ -134,7 +134,7 @@ function CompanyStory() {
                     <Target className="w-6 h-6 text-sky-400" />
                     <h4 className="text-lg font-bold text-white">Mission</h4>
                   </div>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-gray-400 justify-center text-sm font-medium">
                     To provide reliable and technically advanced electrical protection solutions that improve system safety, reliability, and power quality across every project we support.
                   </p>
                 </Card>
@@ -152,7 +152,7 @@ function CompanyStory() {
                     <Eye className="w-6 h-6 text-cyan-400" />
                     <h4 className="text-lg font-bold text-white">Vision</h4>
                   </div>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-gray-400 justify-center text-sm font-medium">
                     To be the trusted partner of choice for electrical protection solutions, ensuring uninterrupted operations and safety for critical infrastructure worldwide.
                   </p>
                 </Card>
@@ -164,24 +164,24 @@ function CompanyStory() {
             <div className="relative h-[500px]">
               <motion.div style={{ y: y1 }} className="collage-item absolute top-0 left-0 w-3/5">
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden glass-dark border border-sky-500/20 shadow-2xl">
-                  <div className="w-full h-full bg-gradient-to-br from-sky-500/30 to-cyan-500/30 flex items-center justify-center">
-                    <Building2 className="w-24 h-24 text-white/30" />
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img src="/about/1.png" alt="Mission" className="object-cover w-full h-full" />
                   </div>
                 </div>
               </motion.div>
 
               <motion.div style={{ y: y2 }} className="collage-item absolute top-16 right-0 w-3/5">
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden glass-dark border border-sky-500/20 shadow-2xl">
-                  <div className="w-full h-full bg-gradient-to-br from-cyan-500/30 to-amber-500/30 flex items-center justify-center">
-                    <Cog className="w-24 h-24 text-white/30" />
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img src="/about/2.png" alt="Vision" className="object-cover w-full h-full" />
                   </div>
                 </div>
               </motion.div>
 
               <motion.div style={{ y: y1 }} className="collage-item absolute bottom-0 left-8 w-1/2">
                 <div className="aspect-square rounded-2xl overflow-hidden glass-dark border border-sky-500/20 shadow-2xl">
-                  <div className="w-full h-full bg-gradient-to-br from-amber-500/30 to-sky-500/30 flex items-center justify-center">
-                    <Shield className="w-20 h-20 text-white/30" />
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img src="/about/3.png" alt="Company" className="object-cover w-full h-full" />
                   </div>
                 </div>
               </motion.div>
