@@ -201,6 +201,8 @@ function ServicesPreview() {
 
 function MersenPartnership() {
   const [isHovered, setIsHovered] = useState(false);
+  const partnershipStartYear = 2016;
+  const partnershipYears = Math.max(0, new Date().getFullYear() - partnershipStartYear);
 
   const achievements = mersenAchievements;
   const benefits = mersenBenefits;
@@ -232,7 +234,7 @@ function MersenPartnership() {
                     </div>
 
                     <p className="text-6xl md:text-8xl font-bold text-white" style={{ textShadow: '0 0 30px rgba(56, 189, 248, 0.5)' }}>
-                      10
+                      {partnershipYears}
                     </p>
                     <p className="text-xl md:text-2xl text-white/80 mt-2 font-semibold">Years of Partnership</p>
 
