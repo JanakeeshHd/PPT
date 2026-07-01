@@ -4,17 +4,20 @@ import {
   Mail,
   Phone,
   MapPin,
-  Globe,
   Zap,
   Shield,
-  ArrowRight,
   Clock,
-  ChevronRight
+  ChevronRight,
+  MessageSquare,
 } from 'lucide-react';
 import { FaXTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa6';
-import Button from './Button';
 import Container from './Container';
 import { company, footerQuickLinks, footerProducts, footerLegalLinks } from '../data/websiteData';
+
+const whatsappInterestMessage =
+  'Hi Pavana Powers Technologies, I am interested in your products. Please share more details about the suitable options for my requirement.';
+
+const whatsappInterestHref = `${company.whatsappHref}?text=${encodeURIComponent(whatsappInterestMessage)}`;
 
 const socialLinks = [
   { icon: FaXTwitter, label: 'X', href: 'https://twitter.com', color: 'hover:text-sky-400 hover:bg-sky-400/20' },
@@ -178,25 +181,26 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Connect with us */}
           <div>
             <h5 className="text-white font-bold text-lg mb-5 flex items-center gap-2">
-              <Globe className="w-5 h-5 text-emerald-400" />
-              Stay Updated
+              <MessageSquare className="w-5 h-5 text-emerald-400" />
+              Connect with us
             </h5>
             <p className="text-gray-400 text-sm mb-4 leading-relaxed">
-              Get the latest news and updates directly in your inbox.
+              Message us on WhatsApp for product details, pricing, and the right solution for your requirement.
             </p>
-            <form className="space-y-3">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="w-full px-4 py-3 rounded-xl bg-slate-900/50 border border-sky-500/20 text-white placeholder-gray-500 focus:outline-none focus:border-sky-500/50 focus:bg-slate-900/70 transition-all duration-300"
-              />
-              <Button variant="primary" size="md" icon={ArrowRight} className="w-full">
-                Subscribe
-              </Button>
-            </form>
+            <a
+              href={whatsappInterestHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-green-500 px-4 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-green-400 hover:shadow-lg hover:shadow-green-500/20"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+                <path d="M12.04 2C6.55 2 2.1 6.45 2.1 11.94c0 1.74.46 3.44 1.34 4.94L2 22l5.26-1.38c1.45.79 3.09 1.2 4.78 1.2 5.49 0 9.94-4.45 9.94-9.94C22 6.45 17.53 2 12.04 2zm5.79 14.09c-.24.68-1.43 1.3-1.98 1.39-.51.08-1.15.12-1.86-.11-.43-.14-.98-.32-1.69-.63-2.97-1.28-4.89-4.31-5.03-4.51-.14-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.59-.38.79-.38h.57c.18 0 .42-.07.66.5.24.58.82 2 .89 2.14.07.14.11.3.02.49-.08.2-.12.32-.24.49-.12.17-.26.39-.37.52-.12.14-.24.29-.1.55.14.26.64 1.06 1.38 1.72.95.85 1.74 1.11 2 .23.08-.24.44-.39.72-.27.28.12 1.78.84 2.09.99.31.15.51.24.59.38.08.14.08.79-.16 1.47z" />
+              </svg>
+              WhatsApp for product inquiry
+            </a>
           </div>
         </div>
 
