@@ -161,7 +161,33 @@ function CompanyStory() {
           </div>
 
           <div className="relative">
-            <div className="relative h-[500px]">
+            <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:hidden">
+              <motion.div className="collage-item col-span-2">
+                <div className="aspect-[16/10] rounded-2xl overflow-hidden glass-dark border border-sky-500/20 shadow-2xl">
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img src="/about/1.png" alt="Mission" className="object-cover w-full h-full" />
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div className="collage-item">
+                <div className="aspect-[4/5] rounded-2xl overflow-hidden glass-dark border border-sky-500/20 shadow-2xl">
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img src="/about/2.png" alt="Vision" className="object-cover w-full h-full" />
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div className="collage-item">
+                <div className="aspect-[4/5] rounded-2xl overflow-hidden glass-dark border border-sky-500/20 shadow-2xl">
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img src="/about/3.png" alt="Company" className="object-cover w-full h-full" />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            <div className="relative hidden lg:block h-[500px]">
               <motion.div style={{ y: y1 }} className="collage-item absolute top-0 left-0 w-3/5">
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden glass-dark border border-sky-500/20 shadow-2xl">
                   <div className="w-full h-full flex items-center justify-center">
