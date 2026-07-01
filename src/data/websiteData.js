@@ -52,11 +52,10 @@ export const navLinks = [
 ];
 
 export const footerQuickLinks = [
-  { name: 'About Us', href: '/about' },
-  { name: 'Our Team', href: '/about' },
-  { name: 'Careers', href: '/contact' },
-  { name: 'Partners', href: '/about' },
-  { name: 'News', href: '/' },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Products', href: '/products' },
+  { name: 'Services', href: '/services' },
   { name: 'Contact', href: '/contact' },
 ];
 
