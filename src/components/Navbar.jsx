@@ -67,23 +67,25 @@ export default function Navbar() {
         aria-label="Main navigation"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-8">
+          <div className="flex items-center justify-between gap-4 sm:gap-8">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-4 group" aria-label="Pavana Powers Technologies - Home">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-cyan-500 to-emerald-500 flex items-center justify-center shadow-xl shadow-blue-500/30 overflow-hidden group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-              <img
-                src={logo}
-                alt="Pavana Powers Technologies Logo"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent tracking-tight">
-                Pavana Powers
-              </span>
-              <span className="block text-xs text-gray-400 tracking-widest uppercase mt-0.5">Technologies</span>
-            </div>
-          </Link>
+            <Link to="/" className="flex items-center gap-3 sm:gap-4 group min-w-0" aria-label="Pavana Powers Technologies - Home">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-cyan-500 to-emerald-500 flex items-center justify-center shadow-xl shadow-blue-500/30 overflow-hidden group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shrink-0">
+                <img
+                  src={logo}
+                  alt="Pavana Powers Technologies Logo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="min-w-0 flex flex-col leading-none">
+                <span className="text-[15px] sm:text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent tracking-tight truncate max-w-[10rem] sm:max-w-none">
+                  Pavana Powers
+                </span>
+                <span className="block text-[10px] sm:text-xs text-gray-400 tracking-[0.24em] uppercase mt-1 truncate max-w-[10rem] sm:max-w-none">
+                  Technologies
+                </span>
+              </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1" role="menubar">

@@ -34,7 +34,7 @@ export const company = {
   whatsapp: 'https://wa.me/919880280484',
   whatsappHref: 'https://wa.me/919880280484',
   address: '#543, 14th Main, HMT Layout Mathikere, Bangalore - 560054',
-  addressHref: 'https://maps.app.goo.gl/hMHeffUcuQaDL6SF8',
+  addressHref: 'https://maps.app.goo.gl/eXwtP9YorPeNBZWRA',
   addressShort: '#543, 14th Main, HMT Layout Mathikere, Bangalore',
   businessHours: 'Mon - Fri: 9:00 AM - 7:00 PM',
   businessHoursDetailed: {

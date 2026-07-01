@@ -134,16 +134,28 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="glass-dark border border-sky-500/20 rounded-3xl overflow-hidden shadow-2xl h-80">
+              <div className="glass-dark border border-sky-500/20 rounded-3xl overflow-hidden shadow-2xl h-80 relative group">
+
+                <a
+                  href={company.addressHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-4 right-4 z-10 inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-slate-950/80 backdrop-blur-xl px-4 py-2 text-sm font-medium text-white shadow-soft transition-colors duration-300 hover:text-cyan-300"
+                >
+                  <span>Open directions</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.211999905253!2d77.56100607420136!3d13.02204491411516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17e13541333b%3A0x6591f8632678695!2sPavana%20Powers%20Technologies!5e0!3m2!1sen!2sin!4v1719376053344!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d515.3117696150708!2d77.55697398539216!3d13.031335091731462!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3d60cf514f89%3A0x24b497344ffd115b!2sPavana%20Powers%20Technologies!5e1!3m2!1sen!2sus!4v1782881051775!5m2!1sen!2sus"
+                  width="600"
+                  height="450"
                   style={{ border: 0 }}
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Google Map of Pavana Powers Technologies"
+                  title="Exact location of Pavana Powers Technologies"
+                  className="h-full w-full"
                 ></iframe>
               </div>
             </div>
