@@ -41,7 +41,7 @@ export default function Button({
   const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 relative overflow-hidden tracking-tight focus:ring-offset-slate-950';
   
   const variants = {
-    primary: 'bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white shadow-glow border-gradient',
+    primary: 'bg-gradient-to-r from-sky-500 via-cyan-500 to-blue-600 hover:from-sky-600 hover:via-cyan-600 hover:to-blue-700 text-white shadow-glow border-gradient',
     secondary: 'glass text-white hover:bg-white/15 border-sky-400/30 shadow-glow-secondary border-gradient',
     outline: 'border-2 border-sky-500 text-sky-400 hover:bg-sky-500/15 shadow-glow',
     ghost: 'text-sky-400 hover:bg-sky-500/15',
