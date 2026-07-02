@@ -209,13 +209,13 @@ export default function Navbar() {
                 {/* Menu Footer */}
                 <div className="p-6 space-y-4">
                   <a
-                    href="tel:+917204269817"
+                    href="tel:+919880280484"
                     className="flex items-center gap-3 w-full px-6 py-4 text-white font-semibold border border-blue-500/20 rounded-2xl hover:bg-white/5 transition-all duration-300"
                   >
                     <FaPhone className="w-5 h-5 text-cyan-400" />
                     <div className="text-left">
                       <div className="text-xs text-gray-400 uppercase tracking-wider">Call Us</div>
-                      <div>+91 7204269817</div>
+                      <div>+91 9880280484</div>
                     </div>
                   </a>
                   <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
