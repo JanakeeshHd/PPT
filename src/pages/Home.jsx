@@ -303,7 +303,6 @@ function MersenPartnership() {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                      <FaCircleCheck className="w-6 h-6 text-amber-400" />
                 Key Achievements
               </h3>
               <div className="grid sm:grid-cols-2 gap-2.5">

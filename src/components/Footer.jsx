@@ -65,7 +65,7 @@ export default function Footer() {
                 <span className="block text-2xl font-extrabold bg-gradient-to-r from-sky-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent tracking-tight leading-tight">
                   Pavana Powers
                 </span>
-                <span className="block text-xs text-gray-400 tracking-[0.25em] uppercase -mt-1 leading-none">
+                <span className="block text-xs text-gray-400 tracking-[0.25em] uppercase -mt-1 leading-tight">
                   Technologies
                 </span>
               </div>
