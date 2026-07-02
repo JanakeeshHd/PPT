@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, Zap, CheckCircle, Award, Shield } from 'lucide-react';
+import { FaArrowRight, FaCircleCheck, FaAward } from 'react-icons/fa6';
 import { useState } from 'react';
 import Hero from '../components/Hero';
 import Button from '../components/Button';
@@ -52,7 +52,7 @@ function AboutPreview() {
   const handleNavClick = () => scrollToTop();
 
   return (
-    <section className="py-12 sm:py-16 bg-slate-950 relative overflow-hidden">
+    <section className="py-10 sm:py-12 bg-slate-950 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-sky-500/15 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl" />
@@ -60,32 +60,32 @@ function AboutPreview() {
       </div>
 
       <Container className="relative z-10">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <motion.div
             initial={{ opacity: 0, x: -32 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass-dark border border-sky-500/30 mb-8 shadow-lg">
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass-dark border border-sky-500/30 mb-6 shadow-lg">
               <span className="w-3 h-3 bg-sky-500 rounded-full animate-pulse shadow-lg shadow-sky-500/50" />
               <span className="text-sm font-semibold text-sky-400 tracking-wider">About Pavana Powers</span>
             </div>
 
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-8">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
               Your Trusted Partner for{' '}
               <span className="bg-gradient-to-r from-sky-500 via-cyan-500 to-emerald-500 bg-clip-text text-transparent drop-shadow-lg">
                 Electrical Solutions
               </span>
             </h2>
 
-            <p className="text-lg sm:text-xl text-gray-400/90 leading-relaxed mb-10 max-w-xl">
+            <p className="text-lg sm:text-xl text-gray-400/90 leading-relaxed mb-8 max-w-xl text-justify">
               Pavana Powers Technologies is a specialized electrical solutions company focused on Surge Protection Devices (SPD), Grounding & Monitoring Devices (GMD), and Industrial Fuse Protection Solutions.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/about" onClick={handleNavClick}>
-                <Button variant="primary" size="lg" icon={ArrowRight} className="shadow-xl shadow-sky-500/30">
+                <Button variant="primary" size="lg" icon={FaArrowRight} className="shadow-xl shadow-sky-500/30">
                   Learn More About Us
                 </Button>
               </Link>
@@ -116,7 +116,7 @@ function AboutPreview() {
                     </div>
                     <p className="text-gray-400 text-base leading-relaxed">{item.desc}</p>
                   </div>
-                  <CheckCircle2 className="w-7 h-7 text-sky-500/30 group-hover:text-sky-400 group-hover:scale-110 flex-shrink-0 mt-1 transition-all duration-300" />
+                  <FaCircleCheck className="w-7 h-7 text-sky-500/30 group-hover:text-sky-400 group-hover:scale-110 flex-shrink-0 mt-1 transition-all duration-300" />
                 </motion.div>
               );
             })}
@@ -131,7 +131,7 @@ function ProductsPreview() {
   const featuredProducts = getFeaturedProducts();
 
   return (
-    <section className="py-12 sm:py-16 bg-slate-900/50 relative overflow-hidden">
+    <section className="py-10 sm:py-12 bg-slate-900/50 relative overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-sky-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-1/2 h-1/2 bg-cyan-500/5 rounded-full blur-3xl" />
@@ -145,7 +145,7 @@ function ProductsPreview() {
           subtitle="Explore our range of premium electrical protection and solution products."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           {featuredProducts.map((product, index) => (
             <PreviewCard key={product.id} item={product} index={index} />
           ))}
@@ -153,7 +153,7 @@ function ProductsPreview() {
 
         <div className="text-center">
           <Link to="/products">
-            <Button variant="primary" size="lg" icon={ArrowRight}>
+            <Button variant="primary" size="lg" icon={FaArrowRight}>
               View All Products
             </Button>
           </Link>
@@ -167,7 +167,7 @@ function ServicesPreview() {
   const featuredServices = getFeaturedServices();
 
   return (
-    <section className="py-12 sm:py-16 bg-slate-950 relative overflow-hidden">
+    <section className="py-10 sm:py-12 bg-slate-950 relative overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute top-0 right-1/4 w-1/3 h-1/3 bg-sky-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-1/4 w-1/3 h-1/3 bg-cyan-500/5 rounded-full blur-3xl" />
@@ -181,7 +181,7 @@ function ServicesPreview() {
           subtitle="End-to-end electrical solutions for industries."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           {featuredServices.map((service, index) => (
             <PreviewCard key={service.id} item={service} index={index} />
           ))}
@@ -189,7 +189,7 @@ function ServicesPreview() {
 
         <div className="text-center">
           <Link to="/services">
-            <Button variant="primary" size="lg" icon={ArrowRight}>
+            <Button variant="primary" size="lg" icon={FaArrowRight}>
               View All Services
             </Button>
           </Link>
@@ -208,14 +208,14 @@ function MersenPartnership() {
   const benefits = mersenBenefits;
 
   return (
-    <section className="py-12 sm:py-16 bg-slate-950 relative overflow-hidden">
+    <section className="py-10 sm:py-12 bg-slate-950 relative overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-sky-500/30 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-500/30 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -230,7 +230,7 @@ function MersenPartnership() {
 
                   <div className="relative z-10 text-center">
                     <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-sky-500 to-cyan-500 flex items-center justify-center">
-                      <Award className="w-10 h-10 md:w-12 md:h-12 text-white" />
+                      <FaAward className="w-10 h-10 md:w-12 md:h-12 text-white" />
                     </div>
 
                     <p className="text-6xl md:text-8xl font-bold text-white" style={{ textShadow: '0 0 30px rgba(56, 189, 248, 0.5)' }}>
@@ -249,28 +249,28 @@ function MersenPartnership() {
             </div>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-6">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-sky-500/20 mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-sky-500/20 mb-4">
                 <span className="w-2 h-2 bg-sky-500 rounded-full animate-pulse" />
                 <span className="text-sm font-medium text-sky-400">Authorised Mersen Partner</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 10 Years of
                 <span className="text-gradient bg-gradient-to-r from-sky-500 to-cyan-500 block">
                   Trust & Partnership
                 </span>
               </h2>
-              <p className="text-xl text-gray-400 leading-relaxed">
+              <p className="text-lg text-gray-400 leading-relaxed text-justify">
                 Pavana Powers Technologies is proud to be an authorised channel partner of Mersen, bringing you industry-leading electrical protection solutions.
               </p>
             </motion.div>
 
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-3">
               {benefits.map((benefit, i) => {
                 const Icon = benefit.icon;
                 return (
@@ -302,14 +302,14 @@ function MersenPartnership() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <CheckCircle className="w-6 h-6 text-amber-400" />
+              <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                      <FaCircleCheck className="w-6 h-6 text-amber-400" />
                 Key Achievements
               </h3>
-              <div className="grid sm:grid-cols-2 gap-3">
+              <div className="grid sm:grid-cols-2 gap-2.5">
                 {achievements.map((achievement, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-sky-400 flex-shrink-0" />
+                    <FaCircleCheck className="w-5 h-5 text-sky-400 flex-shrink-0" />
                     <span className="text-white/80">{achievement}</span>
                   </div>
                 ))}
@@ -324,7 +324,7 @@ function MersenPartnership() {
 
 function HomeIndustries() {
   return (
-    <section className="py-12 sm:py-16 bg-slate-900/50 relative overflow-hidden">
+    <section className="py-10 sm:py-12 bg-slate-900/50 relative overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-1/2 h-1/2 bg-sky-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-1/2 h-1/2 bg-cyan-500/5 rounded-full blur-3xl" />
@@ -338,7 +338,7 @@ function HomeIndustries() {
           subtitle="We provide electrical protection solutions across a wide range of industries, ensuring safety and reliability for critical infrastructure."
         />
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-4">
           {industries.map((industry, index) => {
             const Icon = industry.icon;
             return (
@@ -350,8 +350,8 @@ function HomeIndustries() {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
                 className="group h-full"
               >
-                <div className="glass-dark border border-sky-500/20 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:border-sky-500/40 hover:shadow-glow h-full">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 flex items-center justify-center mb-4">
+                  <div className="glass-dark border border-sky-500/20 rounded-2xl p-5 flex flex-col items-center text-center transition-all duration-300 hover:border-sky-500/40 hover:shadow-glow h-full">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 flex items-center justify-center mb-3">
                     <Icon className="w-7 h-7 text-sky-400" />
                   </div>
                   <h3 className="text-sm md:text-base font-semibold text-white">
@@ -370,7 +370,7 @@ function HomeIndustries() {
 function WhyChooseUs() {
   const features = whyChooseUsFeatures;
   return (
-    <section className="py-12 sm:py-16 bg-slate-900/50 relative overflow-hidden">
+    <section className="py-10 sm:py-12 bg-slate-900/50 relative overflow-hidden">
       <div className="absolute top-1/4 left-0 w-1/2 h-1/2 bg-sky-500/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-0 w-1/2 h-1/2 bg-cyan-500/5 rounded-full blur-3xl" />
 
@@ -379,24 +379,24 @@ function WhyChooseUs() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-sky-500/20 mb-6">
             <span className="w-2 h-2 bg-sky-500 rounded-full animate-pulse" />
             <span className="text-sm font-medium text-sky-400">Why Choose Us</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Why Choose
             <span className="text-gradient bg-gradient-to-r from-sky-500 to-cyan-500">
               {' '}Pavana Powers
             </span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto text-justify">
             We work closely with our customers from selection stage to execution, providing practical and technically reliable solutions.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
@@ -411,9 +411,9 @@ function WhyChooseUs() {
               >
                 <div className="h-full relative group">
                   <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.color} opacity-20 blur-xl`} />
-                  <Card variant="glassDark" className="relative h-full p-8">
+                  <Card variant="glassDark" className="relative h-full p-6">
                     <div className="flex flex-col h-full">
-                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-6`}>
+                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4`}>
                         <Icon className="w-8 h-8 text-white" />
                       </div>
 

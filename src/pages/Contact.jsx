@@ -7,25 +7,31 @@ import { company, pageHeroes } from '../data/websiteData';
 
 function PageHero({ badge, title, highlight, subtitle }) {
   return (
-    <section className="pt-24 pb-16 bg-slate-950 relative overflow-hidden">
+    <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-mesh">
       <div className="absolute inset-0 bg-grid" />
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-sky-500/12 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-cyan-500/12 rounded-full blur-3xl" />
       </div>
-      <div className="relative z-10 text-center">
-        <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-dark border border-sky-500/20 mb-8">
-          <span className="w-3 h-3 bg-sky-500 rounded-full animate-pulse" />
-          <span className="text-sm font-semibold text-sky-400 letter-spacing-wider">{badge}</span>
+      <Container className="relative z-10 w-full text-center">
+        <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass-dark border border-sky-500/30 mb-6 shadow-lg">
+          <span className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse shadow-lg shadow-emerald-500/50" />
+          <span className="text-sm font-semibold text-sky-300 letter-spacing-wider">{badge}</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-6 leading-tight">
-          {title}
-          <span className="text-gradient bg-gradient-to-r from-sky-500 to-cyan-500 block mt-2">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-5 leading-tight">
+          <TextReveal as="span" immediate className="block">
+            {title}
+          </TextReveal>
+          <TextReveal as="span" immediate delay={0.3} className="block text-gradient-hero mt-2 sm:mt-3">
             {highlight}
-          </span>
+          </TextReveal>
         </h1>
-        <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">{subtitle}</p>
-      </div>
+        <p className="text-lg sm:text-xl text-white/85 max-w-3xl mx-auto leading-relaxed text-balance mb-8">
+          <TextReveal as="span" immediate delay={0.6}>
+            {subtitle}
+          </TextReveal>
+        </p>
+      </Container>
     </section>
   );
 }
@@ -37,13 +43,13 @@ export default function Contact() {
     <>
       <PageHero {...hero} />
 
-      <section className="py-12 sm:py-16 bg-slate-900/50 relative overflow-hidden">
+      <section className="py-10 sm:py-12 bg-slate-900/50 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-1/4 right-0 w-1/3 h-1/3 bg-sky-500/5 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 left-0 w-1/3 h-1/3 bg-cyan-500/5 rounded-full blur-3xl" />
         </div>
         <Container>
-          <div className="relative z-10 grid lg:grid-cols-3 gap-10">
+          <div className="relative z-10 grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-1 space-y-6">
               <div className="glass-dark border border-sky-500/20 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-white mb-8">

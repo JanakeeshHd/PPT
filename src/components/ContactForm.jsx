@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Send, ChevronRight } from 'lucide-react';
+import { FaPaperPlane, FaChevronRight } from 'react-icons/fa6';
 import Button from './Button';
 
 function Input({
@@ -52,7 +52,7 @@ export default function ContactForm() {
 
   return (
     <div className="space-y-10">
-      <div className="glass-dark border border-sky-500/20 rounded-3xl p-8 shadow-2xl">
+      <div className="glass-dark border border-sky-500/20 rounded-3xl p-6 sm:p-7 shadow-2xl">
         <h3 className="text-2xl font-bold text-white mb-6">Send us a Message</h3>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
@@ -100,13 +100,13 @@ export default function ContactForm() {
               required
             />
           </div>
-          <Button type="submit" variant="primary" size="lg" icon={Send} className="w-full md:w-auto">
+          <Button type="submit" variant="primary" size="lg" icon={FaPaperPlane} className="w-full md:w-auto">
             Send Message
           </Button>
         </form>
       </div>
 
-      <div className="glass-dark border border-sky-500/20 rounded-3xl p-8 shadow-2xl">
+      <div className="glass-dark border border-sky-500/20 rounded-3xl p-6 sm:p-7 shadow-2xl">
         <h3 className="text-2xl font-bold text-white mb-6">Request a Quote</h3>
         <form onSubmit={handleQuoteSubmit} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
@@ -143,7 +143,7 @@ export default function ContactForm() {
               className="w-full h-40 bg-slate-900/50 border border-sky-500/20 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-sky-500 transition-all resize-none"
             />
           </div>
-          <Button type="submit" variant="primary" size="lg" icon={ChevronRight} className="w-full md:w-auto">
+          <Button type="submit" variant="primary" size="lg" icon={FaChevronRight} className="w-full md:w-auto">
             Request Quote
           </Button>
         </form>

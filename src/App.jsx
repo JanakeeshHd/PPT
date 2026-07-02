@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation, Outlet } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import { ArrowUp, Scroll, MessageSquare } from 'lucide-react';
+import { FaArrowUp } from 'react-icons/fa6';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Lenis from '@studio-freight/lenis';
@@ -20,14 +20,18 @@ function useLenis() {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     });
+    let frameId = 0;
+
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      frameId = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+
+    frameId = requestAnimationFrame(raf);
     lenisRef.current = lenis;
     window.__lenis = lenis;
     return () => {
+      cancelAnimationFrame(frameId);
       delete window.__lenis;
       lenis.destroy();
     };
@@ -89,7 +93,7 @@ function BackToTop() {
       className="fixed bottom-6 right-6 w-12 h-12 rounded-full glass-dark border border-white/10 flex items-center justify-center hover:bg-primary-500/20 hover:border-primary-500/50 transition-all duration-300 z-40 group"
       aria-label="Back to top"
     >
-      <ArrowUp className="w-5 h-5 text-white/70 group-hover:text-white group-hover:-translate-y-1 transition-all duration-300" />
+      <FaArrowUp className="w-5 h-5 text-white/70 group-hover:text-white group-hover:-translate-y-1 transition-all duration-300" />
     </button>
   );
 }

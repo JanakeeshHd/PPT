@@ -3,45 +3,49 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
-  Target,
-  Eye,
-  Zap,
-  Cog,
-  Building2,
-  Shield,
-  BookOpen,
-  PenTool,
-  Filter,
-  Truck,
-  Headphones,
-  CheckCircle,
-} from 'lucide-react';
+  FaBullseye,
+  FaEye,
+  FaBolt,
+  FaBookOpen,
+  FaPenNib,
+  FaFilter,
+  FaTruck,
+  FaHeadphones,
+  FaCircleCheck,
+} from 'react-icons/fa6';
 import Card from '../components/Card';
 import Container from '../components/Container';
+import TextReveal from '../components/TextReveal';
 import { pageHeroes } from '../data/websiteData';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function PageHero({ badge, title, highlight, subtitle }) {
   return (
-    <section className="pt-24 pb-16 bg-slate-950 relative overflow-hidden">
+    <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-mesh">
       <div className="absolute inset-0 bg-grid" />
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-sky-500/12 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-cyan-500/12 rounded-full blur-3xl" />
       </div>
-      <Container className="relative z-10 text-center">
-        <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-dark border border-sky-500/20 mb-8">
-          <span className="w-3 h-3 bg-sky-500 rounded-full animate-pulse" />
-          <span className="text-sm font-semibold text-sky-400 letter-spacing-wider">{badge}</span>
+      <Container className="relative z-10 w-full text-center">
+        <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass-dark border border-sky-500/30 mb-6 shadow-lg">
+          <span className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse shadow-lg shadow-emerald-500/50" />
+          <span className="text-sm font-semibold text-sky-300 letter-spacing-wider">{badge}</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-6 leading-tight">
-          {title}
-          <span className="text-gradient bg-gradient-to-r from-sky-500 to-cyan-500 block mt-2">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-5 leading-tight">
+          <TextReveal as="span" immediate className="block">
+            {title}
+          </TextReveal>
+          <TextReveal as="span" immediate delay={0.3} className="block text-gradient-hero mt-2 sm:mt-3">
             {highlight}
-          </span>
+          </TextReveal>
         </h1>
-        <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">{subtitle}</p>
+        <p className="text-lg sm:text-xl text-white/85 max-w-3xl mx-auto leading-relaxed text-balance mb-8">
+          <TextReveal as="span" immediate delay={0.6}>
+            {subtitle}
+          </TextReveal>
+        </p>
       </Container>
     </section>
   );
@@ -101,7 +105,7 @@ function CompanyStory() {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-8">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -111,12 +115,12 @@ function CompanyStory() {
               <Card variant="glassDark">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-500 flex items-center justify-center">
-                    <Zap className="w-6 h-6 text-white" />
+                    <FaBolt className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-white">Company Overview</h3>
                 </div>
-                <p className="text-gray-400 leading-relaxed justify-center text-sm font-medium">
-                  Pavana Powers Technologies is a specialised electrical solutions company focused on projects requiring Surge Protection Devices (SPD), Grounding & Monitoring Devices (GMD), and Industrial Fuse Protection Solutions. With strong application knowledge and a customer-focused approach, we work closely with consultants, contractors, panel builders, OEMs, system integrators, and end users to provide the right technical solutions for safe and reliable electrical systems.
+                <p className="text-gray-400 leading-relaxed text-sm font-medium text-justify">
+                  Pavana Powers Technologies is a specialised electrical solutions company focused on Surge Protection Devices (SPD), Grounding & Monitoring Devices (GMD), and Industrial Fuse Protection Solutions. We work closely with consultants, contractors, panel builders, OEMs, system integrators, and end users to deliver technically reliable solutions for safe electrical systems.
                 </p>
               </Card>
             </motion.div>
@@ -131,11 +135,11 @@ function CompanyStory() {
               >
                 <Card variant="glassDark" className="h-full">
                   <div className="flex items-center gap-3 mb-4">
-                    <Target className="w-6 h-6 text-sky-400" />
+                    <FaBullseye className="w-6 h-6 text-sky-400" />
                     <h4 className="text-lg font-bold text-white">Mission</h4>
                   </div>
-                  <p className="text-gray-400 justify-center text-sm font-medium">
-                    To provide reliable and technically advanced electrical protection solutions that improve system safety, reliability, and power quality across every project we support.
+                  <p className="text-gray-400 text-sm font-medium text-justify">
+                    To provide reliable and technically advanced electrical protection solutions that improve safety, reliability, and power quality in every project we support.
                   </p>
                 </Card>
               </motion.div>
@@ -149,11 +153,11 @@ function CompanyStory() {
               >
                 <Card variant="glassDark" className="h-full">
                   <div className="flex items-center gap-3 mb-4">
-                    <Eye className="w-6 h-6 text-cyan-400" />
+                    <FaEye className="w-6 h-6 text-cyan-400" />
                     <h4 className="text-lg font-bold text-white">Vision</h4>
                   </div>
-                  <p className="text-gray-400 justify-center text-sm font-medium">
-                    To be the trusted partner of choice for electrical protection solutions, ensuring uninterrupted operations and safety for critical infrastructure worldwide.
+                  <p className="text-gray-400 text-sm font-medium text-justify">
+                    To be the trusted partner of choice for electrical protection solutions, helping critical infrastructure operate safely and without interruption.
                   </p>
                 </Card>
               </motion.div>
@@ -223,35 +227,35 @@ const processSteps = [
   {
     id: 1,
     title: 'Study & Analysis',
-    icon: BookOpen,
+    icon: FaBookOpen,
     description: 'We conduct a thorough study and analysis of your electrical system requirements and challenges.',
     color: 'from-sky-500 to-sky-600',
   },
   {
     id: 2,
     title: 'Design & Engineering',
-    icon: PenTool,
+    icon: FaPenNib,
     description: 'Our expert engineers design custom solutions tailored to your specific needs.',
     color: 'from-cyan-500 to-cyan-600',
   },
   {
     id: 3,
     title: 'Solution Selection',
-    icon: Filter,
+    icon: FaFilter,
     description: 'We help you select the optimal combination of products and technologies.',
     color: 'from-amber-500 to-amber-600',
   },
   {
     id: 4,
     title: 'Supply & Installation',
-    icon: Truck,
+    icon: FaTruck,
     description: 'We deliver and install the complete solution at your facility with precision.',
     color: 'from-sky-500 to-cyan-500',
   },
   {
     id: 5,
     title: 'Ongoing Support',
-    icon: Headphones,
+    icon: FaHeadphones,
     description: 'Our support team is available 24/7 to assist you with any needs.',
     color: 'from-cyan-500 to-amber-500',
   },
@@ -286,7 +290,7 @@ function ProcessTimeline() {
               Process
             </span>
           </h2>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
+          <p className="text-xl text-white/70 max-w-2xl mx-auto text-justify">
             A systematic approach to delivering exceptional electrical protection solutions.
           </p>
         </motion.div>
@@ -320,7 +324,7 @@ function ProcessTimeline() {
                         <Icon className="w-8 h-8 md:w-10 md:h-10 text-white" />
                       </div>
                       <h3 className="text-2xl font-bold text-white mb-3">{step.title}</h3>
-                      <p className="text-white/70 leading-relaxed">{step.description}</p>
+                      <p className="text-white/70 leading-relaxed text-justify">{step.description}</p>
                     </div>
                   </div>
 
@@ -331,7 +335,7 @@ function ProcessTimeline() {
                       transition={{ type: 'spring', stiffness: 300, damping: 25, delay: index * 0.1 }}
                       className={`w-12 h-12 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center border-4 border-slate-950 shadow-xl shadow-sky-500/30`}
                     >
-                      <CheckCircle className="w-6 h-6 text-white" />
+                      <FaCircleCheck className="w-6 h-6 text-white" />
                     </motion.div>
                   </div>
 

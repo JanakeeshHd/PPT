@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { FaArrowRight, FaCircleCheck } from 'react-icons/fa6';
 import Button from '../components/Button';
 import Container from '../components/Container';
 import TextReveal from '../components/TextReveal';
@@ -8,40 +8,30 @@ import { services, pageHeroes } from '../data/websiteData';
 
 function PageHero({ badge, title, highlight, subtitle }) {
   return (
-    <section className="pt-32 pb-20 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-500 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-emerald-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+    <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 bg-mesh">
+      <div className="absolute inset-0 bg-grid" />
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-sky-500/12 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-cyan-500/12 rounded-full blur-3xl" />
       </div>
-      <Container className="relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-3 px-8 py-4 rounded-full glass-dark border border-cyan-500/30 mb-10 shadow-2xl"
-        >
-          <span className="w-4 h-4 bg-cyan-500 rounded-full animate-pulse shadow-lg shadow-cyan-500/50"></span>
-          <span className="text-sm font-semibold text-cyan-400 tracking-wider uppercase">{badge}</span>
-        </motion.div>
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-6xl lg:text-8xl font-extrabold text-white mb-8 leading-tight"
-        >
-          <TextReveal>{title}</TextReveal>
-          <span className="block mt-3 text-gradient bg-gradient-to-r from-cyan-400 via-emerald-400 to-blue-400">
-            <TextReveal delay={0.3}>{highlight}</TextReveal>
-          </span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
-        >
-          {subtitle}
-        </motion.p>
+      <Container className="relative z-10 w-full text-center">
+        <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass-dark border border-sky-500/30 mb-6 shadow-lg">
+          <span className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse shadow-lg shadow-emerald-500/50" />
+          <span className="text-sm font-semibold text-sky-300 letter-spacing-wider">{badge}</span>
+        </div>
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-5 leading-tight">
+          <TextReveal as="span" immediate className="block">
+            {title}
+          </TextReveal>
+          <TextReveal as="span" immediate delay={0.3} className="block text-gradient-hero mt-2 sm:mt-3">
+            {highlight}
+          </TextReveal>
+        </h1>
+        <p className="text-lg sm:text-xl text-white/85 max-w-3xl mx-auto leading-relaxed text-balance mb-8">
+          <TextReveal as="span" immediate delay={0.6}>
+            {subtitle}
+          </TextReveal>
+        </p>
       </Container>
     </section>
   );
@@ -54,9 +44,9 @@ export default function Services() {
     <>
       <PageHero {...hero} />
 
-      <section className="py-20 md:py-28 bg-slate-900 relative">
+      <section className="py-14 md:py-20 bg-slate-900 relative">
         <Container>
-          <div className="space-y-24">
+          <div className="space-y-16 md:space-y-20">
             {services.map((service, index) => {
               const isEven = index % 2 === 0;
               return (
@@ -67,11 +57,11 @@ export default function Services() {
                   viewport={{ once: true, margin: '-100px' }}
                   transition={{ duration: 0.8, delay: index * 0.15 }}
                 >
-                  <div className={`grid lg:grid-cols-2 gap-12 items-center ${!isEven ? 'lg:flex-row-reverse' : ''}`}>
+                  <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <motion.div
                       whileHover={{ scale: 1.02 }}
                       transition={{ duration: 0.4 }}
-                      className="relative"
+                      className={`${!isEven ? 'lg:order-2' : 'lg:order-1'} relative`}
                     >
                       <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
                         <img
@@ -82,12 +72,12 @@ export default function Services() {
                         <div className="absolute inset-0 bg-gradient-to-br from-slate-950/40 via-transparent to-slate-950/60"></div>
                       </div>
                     </motion.div>
-                    <div className="space-y-8">
+                    <div className={`${!isEven ? 'lg:order-1' : 'lg:order-2'} space-y-8`}>
                           <h3 className="text-4xl font-extrabold text-white">{service.name}</h3>
-                      <p className="text-2xl text-gray-300 leading-relaxed">{service.desc}</p>
+                      <p className="text-2xl text-gray-300 leading-relaxed text-justify">{service.desc}</p>
                       <div>
                         <h4 className="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-3 uppercase tracking-wider">
-                          <CheckCircle2 className="w-8 h-8" />
+                          <FaCircleCheck className="w-8 h-8" />
                           Our Process
                         </h4>
                         <div className="grid grid-cols-2 gap-4">
@@ -107,7 +97,7 @@ export default function Services() {
                           <ul className="space-y-2">
                             {service.benefits.map((benefit, i) => (
                               <li key={i} className="flex items-start gap-3">
-                                <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                                <FaCircleCheck className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                                 <span className="text-white/90">{benefit}</span>
                               </li>
                             ))}
@@ -129,7 +119,7 @@ export default function Services() {
                       </div>
                       <div className="pt-4">
                         <Link to="/contact">
-                          <Button variant="primary" icon={ArrowRight} className="text-lg py-5 px-10 shadow-2xl shadow-cyan-500/30">
+                          <Button variant="primary" icon={FaArrowRight} className="text-lg py-5 px-10 shadow-2xl shadow-cyan-500/30">
                             Get Started
                           </Button>
                         </Link>

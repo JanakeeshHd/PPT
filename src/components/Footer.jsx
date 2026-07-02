@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
-  Mail,
-  Phone,
-  MapPin,
-  Zap,
-  Shield,
-  Clock,
-  ChevronRight,
-  MessageSquare,
-} from 'lucide-react';
+  FaEnvelope,
+  FaPhone,
+  FaMapLocationDot,
+  FaBolt,
+  FaShieldHalved,
+  FaClock,
+  FaChevronRight,
+  FaComments,
+} from 'react-icons/fa6';
 import { FaXTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa6';
 import Container from './Container';
 import { company, footerQuickLinks, footerProducts, footerLegalLinks } from '../data/websiteData';
@@ -27,7 +27,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 pt-16 sm:pt-20 border-t border-sky-500/20 relative overflow-hidden">
+    <footer className="bg-slate-950 pt-12 sm:pt-16 border-t border-sky-500/20 relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -50,7 +50,7 @@ export default function Footer() {
 
       <Container className="relative z-10">
         {/* Main footer content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-10 sm:mb-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-3 mb-6">
@@ -71,15 +71,15 @@ export default function Footer() {
               </div>
             </Link>
 
-            <p className="text-gray-400 leading-relaxed mb-6">
+            <p className="text-gray-400 leading-relaxed mb-5 text-justify">
               Engineering excellence in electrical protection and power quality solutions for a safer, more efficient future.
             </p>
 
             {/* Contact Info Cards */}
-            <div className="space-y-4 mb-6">
-              <div className="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/50 border border-sky-500/10">
+            <div className="space-y-3 mb-5">
+              <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-900/50 border border-sky-500/10">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-sky-400" />
+                  <FaMapLocationDot className="w-5 h-5 text-sky-400" />
                 </div>
                 <div>
                   <p className="text-gray-500 text-xs mb-1">Address</p>
@@ -94,9 +94,9 @@ export default function Footer() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/50 border border-sky-500/10">
+              <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-900/50 border border-sky-500/10">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 text-sky-400" />
+                  <FaPhone className="w-5 h-5 text-sky-400" />
                 </div>
                 <div>
                   <p className="text-gray-500 text-xs mb-1">Phone</p>
@@ -109,9 +109,9 @@ export default function Footer() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/50 border border-sky-500/10">
+              <div className="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-900/50 border border-sky-500/10">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500/20 to-cyan-500/20 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-sky-400" />
+                  <FaEnvelope className="w-5 h-5 text-sky-400" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="text-gray-500 text-xs mb-1">Email</p>
@@ -145,7 +145,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h5 className="text-white font-bold text-lg mb-5 flex items-center gap-2">
-              <Shield className="w-5 h-5 text-sky-400" />
+              <FaShieldHalved className="w-5 h-5 text-sky-400" />
               Quick Links
             </h5>
             <ul className="space-y-3">
@@ -155,7 +155,7 @@ export default function Footer() {
                     to={link.href}
                     className="text-gray-400 hover:text-sky-400 flex items-center gap-2 transition-all duration-300 hover:pl-2"
                   >
-                    <ChevronRight className="w-4 h-4 flex-shrink-0" />
+                    <FaChevronRight className="w-4 h-4 flex-shrink-0" />
                     {link.name}
                   </Link>
                 </li>
@@ -166,14 +166,14 @@ export default function Footer() {
           {/* Products */}
           <div>
             <h5 className="text-white font-bold text-lg mb-5 flex items-center gap-2">
-              <Zap className="w-5 h-5 text-cyan-400" />
+              <FaBolt className="w-5 h-5 text-cyan-400" />
               Products
             </h5>
             <ul className="space-y-3">
               {footerProducts.map((name) => (
                 <li key={name}>
                   <div className="text-gray-400 flex items-center gap-2">
-                    <ChevronRight className="w-4 h-4 flex-shrink-0" />
+                    <FaChevronRight className="w-4 h-4 flex-shrink-0" />
                     {name}
                   </div>
                 </li>
@@ -184,10 +184,10 @@ export default function Footer() {
           {/* Connect with us */}
           <div>
             <h5 className="text-white font-bold text-lg mb-5 flex items-center gap-2">
-              <MessageSquare className="w-5 h-5 text-emerald-400" />
+              <FaComments className="w-5 h-5 text-emerald-400" />
               Connect with us
             </h5>
-            <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+            <p className="text-gray-400 text-sm mb-4 leading-relaxed text-justify">
               Message us on WhatsApp for product details, pricing, and the right solution for your requirement.
             </p>
             <a

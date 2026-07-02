@@ -5,8 +5,8 @@ export default function SectionTitle({
   title,
   highlight,
   subtitle,
-  className = 'text-center mb-16',
-  titleClassName = 'text-4xl md:text-5xl font-bold text-brand-white mb-6',
+  className = 'text-center mb-12',
+  titleClassName = 'text-4xl md:text-5xl font-bold text-brand-white mb-4',
 }) {
   return (
     <motion.div
@@ -15,7 +15,7 @@ export default function SectionTitle({
       viewport={{ once: true }}
       className={className}
     >
-      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-white/10 mb-6">
+      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-white/10 mb-4">
         <span className="w-2 h-2 bg-brand-primary rounded-full animate-pulse" />
         <span className="text-sm font-medium text-brand-primary">{badge}</span>
       </div>
@@ -28,7 +28,7 @@ export default function SectionTitle({
         )}
       </h2>
       {subtitle && (
-        <p className="text-xl text-brand-grey max-w-2xl mx-auto">{subtitle}</p>
+        <p className="text-lg text-brand-grey max-w-2xl mx-auto">{subtitle}</p>
       )}
     </motion.div>
   );

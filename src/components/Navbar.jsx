@@ -2,20 +2,16 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Menu,
-  X,
-  Zap,
-  Shield,
-  Cog,
-  Phone,
-  MessageSquare,
-  ChevronRight,
-  Home,
-  Building2,
-  PackageOpen,
-  PhoneCall,
-  CircleUser
-} from 'lucide-react';
+  FaBars,
+  FaXmark,
+  FaGear,
+  FaPhone,
+  FaComments,
+  FaChevronRight,
+  FaHouse,
+  FaBuilding,
+  FaBoxOpen,
+} from 'react-icons/fa6';
 import Button from './Button';
 import { navLinks } from '../data/websiteData';
 import logo from '../assets/logo/logo.png';
@@ -48,11 +44,11 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   const navItems = [
-    { name: 'Home', href: '/', icon: Home },
-    { name: 'About', href: '/about', icon: Building2 },
-    { name: 'Products', href: '/products', icon: PackageOpen },
-    { name: 'Services', href: '/services', icon: Cog },
-    { name: 'Contact', href: '/contact', icon: PhoneCall }
+    { name: 'Home', href: '/', icon: FaHouse },
+    { name: 'About', href: '/about', icon: FaBuilding },
+    { name: 'Products', href: '/products', icon: FaBoxOpen },
+    { name: 'Services', href: '/services', icon: FaGear },
+    { name: 'Contact', href: '/contact', icon: FaPhone }
   ];
 
   return (
@@ -117,7 +113,7 @@ export default function Navbar() {
               aria-label="Toggle mobile menu"
               aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <FaXmark className="w-6 h-6" /> : <FaBars className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -170,7 +166,7 @@ export default function Navbar() {
                     className="p-3 text-white hover:bg-white/10 rounded-xl transition-all duration-300 border border-white/10"
                     aria-label="Close mobile menu"
                   >
-                    <X className="w-6 h-6" />
+                    <FaXmark className="w-6 h-6" />
                   </button>
                 </div>
 
@@ -203,7 +199,7 @@ export default function Navbar() {
                             </div>
                             {item.name}
                           </div>
-                          <ChevronRight className="w-5 h-5 text-gray-500" />
+                          <FaChevronRight className="w-5 h-5 text-gray-500" />
                         </Link>
                       </motion.div>
                     );
@@ -216,14 +212,14 @@ export default function Navbar() {
                     href="tel:+917204269817"
                     className="flex items-center gap-3 w-full px-6 py-4 text-white font-semibold border border-blue-500/20 rounded-2xl hover:bg-white/5 transition-all duration-300"
                   >
-                    <Phone className="w-5 h-5 text-cyan-400" />
+                    <FaPhone className="w-5 h-5 text-cyan-400" />
                     <div className="text-left">
                       <div className="text-xs text-gray-400 uppercase tracking-wider">Call Us</div>
                       <div>+91 7204269817</div>
                     </div>
                   </a>
                   <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                    <Button variant="primary" icon={MessageSquare} className="w-full text-lg py-4 shadow-xl shadow-blue-500/30">
+                    <Button variant="primary" icon={FaComments} className="w-full text-lg py-4 shadow-xl shadow-blue-500/30">
                       Get a Quote
                     </Button>
                   </Link>
