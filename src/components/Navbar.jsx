@@ -74,10 +74,10 @@ export default function Navbar() {
                 />
               </div>
               <div className="min-w-0 flex flex-col leading-none">
-                <span className="text-[15px] sm:text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent tracking-tight truncate max-w-[10rem] sm:max-w-none">
+                <span className="text-[15px] sm:text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent tracking-tight truncate max-w-[10rem] sm:max-w-none leading-tight">
                   Pavana Powers
                 </span>
-                <span className="block text-[10px] sm:text-xs text-gray-400 tracking-[0.24em] uppercase mt-1 truncate max-w-[10rem] sm:max-w-none lading-tight">
+                <span className="block text-[10px] sm:text-xs text-gray-400 tracking-[0.24em] uppercase mt-1 truncate max-w-[10rem] sm:max-w-none leading-tight">
                   Technologies
                 </span>
               </div>
